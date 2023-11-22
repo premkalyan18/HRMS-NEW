@@ -1,0 +1,65 @@
+{
+    "data" : [
+        {
+          "ticketId": "#TKT-001",
+          "ticketSubject": "Laptop Issue",
+          "assignedStaff": "John Smith",
+          "client": "Delta Infotech",
+          "priority": "Low",
+          "cc": "ashok",
+          "assigne": "prakash",
+          "addfollow": "tested",
+          "description": "tested",
+          "createdDate": "05-05-2020",
+          "lastReply": "06-05-2020",
+          "status": "Approved",
+          "id": 1
+        },
+        {
+          "ticketId": "#TKT-002",
+          "ticketSubject": "Laptop Issue",
+          "assignedStaff": "Mark Hentry",
+          "client": "International software Inc",
+          "priority": "High",
+          "cc": "ashok",
+          "assigne": "prakash",
+          "addfollow": "tested",
+          "description": "tested",
+          "createdDate": "05-05-2020",
+          "lastReply": "06-05-2020",
+          "status": "Pending",
+          "id": 2
+        },
+        {
+          "ticketId": "#TKT-003",
+          "ticketSubject": "Mouse Issue",
+          "assignedStaff": "Mikel deo",
+          "client": "International software Inc",
+          "priority": "High",
+          "cc": "ashok",
+          "assigne": "prakash",
+          "addfollow": "tested",
+          "description": "tested",
+          "createdDate": "05-05-2020",
+          "lastReply": "06-05-2020",
+          "status": "Pending",
+          "id": 3
+        },
+        {
+          "ticketId": "#TKT-004",
+          "ticketSubject": "Monitor Issue",
+          "assignedStaff": "Richared Deo",
+          "client": "International software Inc",
+          "priority": "High",
+          "cc": "ashok",
+          "assigne": "prakash",
+          "addfollow": "tested",
+          "description": "tested",
+          "createdDate": "05-05-2020",
+          "lastReply": "06-05-2020",
+          "status": "Pending",
+          "id": 4
+        }
+      ],
+      "totalData":4
+}

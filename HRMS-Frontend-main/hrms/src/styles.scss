@@ -1,0 +1,279 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$pagination-primary: mat.define-palette(mat.$indigo-palette);
+$pagination-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$pagination-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$pagination-theme: mat.define-light-theme((color: (primary: $pagination-primary,
+        accent: $pagination-accent,
+        warn: $pagination-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($pagination-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+// important class to hide pages
+.show-page-no {
+  display: block !important;
+  transition: all 0.5s;
+}
+
+.hide-page-no {
+  display: none !important;
+  transition: all 0.5s;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/_config/_app.scss';
+
+.inputs {
+  mat-form-field {
+    background: white;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    max-height: 3.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    &:focus {
+      border-color: red;
+    }
+
+  }
+
+  .mat-form-field-infix {
+    border-top: 0.6em solid rgba(0, 0, 0, 0);
+
+    .mat-input-element {
+      &:focus {
+        border-color: #ff9b44
+      }
+    }
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-label {
+    padding: 0 12px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #e3e3e3;
+  }
+
+  .mat-form-field-appearance-legacy input.mat-input-element {
+    padding: 0 12px;
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: #888888;
+    font-size: 16px;
+    margin-top: 6px;
+  }
+}
+
+.select {
+  mat-form-field {
+    background: white;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    max-height: 3.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mat-form-field-appearance-fill {
+    .mat-form-field-flex {
+      background-color: #ffff;
+      height: 45px;
+      padding: 0.55em 0.75em 0 .75em
+    }
+
+
+  }
+
+
+  .mat-form-field {
+    &.mat-focused.mat-primary {
+      .mat-select-arrow {
+        color: #000;
+      }
+    }
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-label {
+    padding: 0 12px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #e3e3e3;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.4375em 10px;
+  }
+
+  .mat-form-field-type-mat-native-select .mat-form-field-infix::after {
+    right: 8px;
+    color: #e3e3e3;
+  }
+
+
+}
+
+
+.mat-selected.mat-active {
+  background-color: #ddd !important;
+  color: #000 !important;
+}
+
+.mat-option:hover:has(.mat-selected.mat-active) {
+  background: #ddd !important;
+  color: #fff !important;
+}
+
+.mat-option:hover:not(.mat-option-disabled),
+.mat-option:focus:not(.mat-option-disabled) {
+  background-color: #fd8e2d !important;
+  color: #fff !important;
+}
+
+.cdk-overlay-container {
+  z-index: 99999;
+}
+
+.inputs .mat-form-field-appearance-legacy input.mat-input-element {
+  width: 158px;
+  height: 30px;
+}
+
+.inputs .mat-form-field-infix {
+  border-top: 12px solid rgba(0, 0, 0, 0);
+}
+
+.btn-check:checked+.btn .btn.active {
+  background-color: #fd8e2d !important;
+}
+
+.fc-h-event {
+  background-color: #ff9b44 !important;
+  border-color: #ff9b44 !important;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  background-color: #ff9b44 !important;
+  border-color: #ff9b44 !important;
+  color: #fff !important
+}
+
+.fc .fc-button-primary:disabled {
+  background-color: #ff9b44 !important;
+  border-color: #ff9b44 !important;
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: #000 !important;
+}
+
+.fc .fc-daygrid-day-number {
+  color: #000 !important;
+}
+.fc .fc-button-primary {
+  background: #f1f1f1 !important;
+  color: #797979 !important;
+  border: none !important
+}
+
+.custom-timepicker {
+  position: absolute;
+  width: fit-content;
+  left: 0;
+  z-index: 1;
+  margin-top: 45px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid #F2ECFF;
+  box-shadow: 0px 4px 44px rgb(231 234 252 / 75%);
+  border-radius: 6px;
+  display: none;
+}
+.btn-white {
+  &:hover {
+    border: 1px solid #cccccc;
+  }
+}
+.material-color {
+  color: #000;
+}
+
+.dropdown-cut {
+  .dropdown-toggle {
+    &::after {
+      display: none;
+    }
+  }
+}
+.header .top-nav-search form .form-control {
+  &::placeholder {
+    color: #ffffffb3;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: #ffffffb3;
+  }
+
+  &::-ms-input-placeholder {
+    color: #ffffffb3;
+  }
+}
+.apexcharts-menu-icon {
+  display: none;
+}
+.apexcharts-toolbar {
+  display: none !important;
+}
+.apexcharts-legend-series {
+  display: none !important;
+}
+.apexcharts-yaxis-title {
+  display: none !important;
+}

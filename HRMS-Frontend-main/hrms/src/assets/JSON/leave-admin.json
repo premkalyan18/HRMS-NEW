@@ -1,0 +1,89 @@
+{
+    "data" : [
+    {
+      "id": 1,
+      "employeeName": "John Doe",
+      "designation": "web developer",
+      "leaveType": "Casual Leave",
+      "from": "08-09-2019",
+      "to": "11-09-2019",
+      "noofDays": "2 days",
+      "remainleaves": "12",
+      "reason": "Going Hospital",
+      "status": "New"
+    },
+    {
+      "id": 2,
+      "employeeName": "John Smith",
+      "designation": "web developer",
+      "leaveType": "LOP",
+      "from": "08-09-2019",
+      "to": "11-09-2019",
+      "noofDays": "2 days",
+      "remainleaves": "4",
+      "reason": "Personnal",
+      "status": "Approved"
+    },
+    {
+      "id": 3,
+      "employeeName": "Mike Lirus",
+      "designation": "Android developer",
+      "leaveType": "Paternity Leave",
+      "from": "13-02-2019",
+      "to": "17-02-2019",
+      "noofDays": "5 days",
+      "remainleaves": "10",
+      "reason": "Personnal",
+      "status": "Declined"
+    },
+    {
+      "id": 4,
+      "employeeName": "Mike Lirus",
+      "designation": "web developer",
+      "leaveType": "Paternity Leave",
+      "from": "13-05-2019",
+      "to": "17-05-2019",
+      "noofDays": "5 days",
+      "remainleaves": "6",
+      "reason": "Medical leave",
+      "status": "Declined"
+    },
+    {
+      "id": 5,
+      "employeeName": "Catherine Manseau",
+      "designation": "web designer",
+      "leaveType": "Casual Leave",
+      "from": "13-04-2019",
+      "to": "17-06-2019",
+      "noofDays": "5 days",
+      "remainleaves": "7",
+      "reason": "Going  Hospital",
+      "status": "Approved"
+    },
+    {
+      "id": 6,
+      "employeeName": "Mike Lirus",
+      "designation": "web developer",
+      "leaveType": "Paternity Leave",
+      "from": "13-05-2019",
+      "to": "17-05-2019",
+      "noofDays": "5 days",
+      "remainleaves": "6",
+      "reason": "Medical leave",
+      "status": "Declined"
+    },
+    {
+      "id": 7,
+      "employeeName": "John Smith",
+      "designation": "web developer",
+      "leaveType": "LOP",
+      "from": "08-09-2019",
+      "to": "11-09-2019",
+      "noofDays": "2 days",
+      "remainleaves": "4",
+      "reason": "Personnal",
+      "status": "Approved"
+    }
+    ],
+    "totalData":7
+}

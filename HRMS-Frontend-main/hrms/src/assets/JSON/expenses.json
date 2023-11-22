@@ -1,0 +1,59 @@
+{
+    "data" : [
+        {
+          "item": "Dell Laptop",
+          "purchaseFrom": "Amazon",
+          "purchaseDate": "05-01-2019",
+          "purchasedBy": "Loren Gatlin",
+          "amount": "$1215",
+          "paidby": "Cash",
+          "id": 1
+        },
+        {
+          "item": "Mac System",
+          "purchaseFrom": "Amazon",
+          "purchaseDate": "05-01-2019",
+          "purchasedBy": "Tarah Shropshire",
+          "amount": "$1215",
+          "paidby": "Cheque",
+          "id": 2
+        },
+        {
+          "item": "Apple",
+          "purchaseFrom": "Amazon",
+          "purchaseDate": "05-01-2019",
+          "purchasedBy": "John Doe",
+          "amount": "$1215",
+          "paidby": "Cheque",
+          "id": 3
+        },
+        {
+          "item": "HCL",
+          "purchaseFrom": "Amazon",
+          "purchaseDate": "01-01-2019",
+          "purchasedBy": "John Doe",
+          "amount": "$1215",
+          "paidby": "Cheque",
+          "id": 4
+        },
+        {
+          "item": "HCL",
+          "purchaseFrom": "Flipkart",
+          "purchaseDate": "01-01-2019",
+          "purchasedBy": "Loren Gatlin",
+          "amount": "$1215",
+          "paidby": "Cheque",
+          "id": 5
+        },
+        {
+          "item": "Sony",
+          "purchaseFrom": "Flipkart",
+          "purchaseDate": "20-01-2019",
+          "purchasedBy": "Loren Mac",
+          "amount": "$1215",
+          "paidby": "Cheque",
+          "id": 6
+        }
+      ],
+      "totalData":6
+}

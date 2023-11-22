@@ -1,0 +1,41 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name1": "John Doe",
+          "name2": "Web Designer",
+          "jobtitle": "Web Developer",
+          "useravailable": "11-03-2020",
+          "useravailabletimings": "- 11:00 AM-12:00 PM",
+          "useravailable1": "11-03-2020",
+          "useravailabletimings1": "- 10:00 AM-11:00 AM",
+          "useravailable2": "01-01-1970",
+          "useravailabletimings2": "- 10:00 AM-11:00 AM"
+        },
+        {
+          "id": 2,
+          "name1": "Richard Miles",
+          "name2": "Web Developer",
+          "jobtitle": "Web Designer",
+          "useravailable": "11-03-2020",
+          "useravailabletimings": "- 11:00 AM-12:00 PM",
+          "useravailable1": "11-03-2020",
+          "useravailabletimings1": "- 10:00 AM-11:00 AM",
+          "useravailable2": "01-01-1970",
+          "useravailabletimings2": "- 10:00 AM-11:00 AM"
+        },
+        {
+          "id": 3,
+          "name1": "John Smith",
+          "name2": "Android Developer",
+          "jobtitle": "Android Developer",
+          "useravailable": "11-03-2020",
+          "useravailabletimings": "- 11:00 AM-12:00 PM",
+          "useravailable1": "11-03-2020",
+          "useravailabletimings1": "- 10:00 AM-11:00 AM",
+          "useravailable2": "01-01-1970",
+          "useravailabletimings2": "- 10:00 AM-11:00 AM"
+        }
+      ],
+      "totalData":3
+}

@@ -1,0 +1,25 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name1": "Barry Cuda",
+          "name2": "Global Technologies",
+          "company": "Global Technologies",
+          "email": "barrycuda@example.com",
+          "role": "Client",
+          "designation": "CEO",
+          "status": "Active"
+        },
+        {
+          "id": 2,
+          "name1": "Daniel Porter",
+          "name2": "Admin",
+          "company": "Focus Technologies",
+          "email": "danielporter@example.com",
+          "role": "Admin",
+          "designation": "Admin Manager",
+          "status": "Active"
+        }
+      ],
+      "totalData":2
+}

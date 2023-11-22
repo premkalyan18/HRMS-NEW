@@ -1,0 +1,52 @@
+/****** UTILS ******/
+@import "../component/utils/variables.scss";
+@import "../component/utils/mixins.scss";
+
+/******* BASE *******/
+@import "../component/base/reset.scss";
+@import "../component/base/typography.scss";
+@import "../component/base/colors.scss"; 
+@import "../component/base/base.scss";
+@import "../component/base/grid.scss";
+
+/******* COMPONENTS ******/
+@import "../component/components/button";
+
+/****** LAYOUT ******/
+@import "../component//layout/avatar.scss";
+@import "../component/layout/bootstrap-classes.scss";
+@import "../component/layout/breadcrumb.scss";
+@import "../component/layout/content.scss";
+@import "../component/layout/footer.scss";
+@import "../component/layout/header.scss";
+@import "../component/layout/sidebar.scss";
+@import "../component/layout/nav-tab.scss";
+@import "../component/layout/popup.scss";
+@import "../component/layout/table.scss";
+@import "../component/layout/theme-settings.scss";
+
+/****** PAGES ******/
+@import "../component/pages/activites.scss";
+@import "../component/pages/assets.scss";
+@import "../component/pages/attendance.scss";
+@import "../component/pages/chat.scss";
+@import "../component/pages/call.scss";
+@import "../component/pages/calendar.scss";
+@import "../component/pages/contact.scss";
+@import "../component/pages/components.scss";
+@import "../component/pages/email.scss";
+@import "../component/pages/error.scss";
+@import "../component/pages/dashboard.scss";
+@import "../component/pages/filemanager.scss";
+@import "../component/pages/login.scss";
+@import "../component/pages/loader.scss";
+@import "../component/pages/faq.scss";
+@import "../component/pages/employee.scss";
+@import "../component/pages/project.scss";
+@import "../component/pages/task.scss";
+@import "../component/pages/page.scss";
+@import "../component/pages/profile.scss";
+@import "../component/pages/payroll.scss";
+@import "../component/pages/knowledge.scss";
+@import "../component/pages/subscriptions.scss";
+@import "../component/pages/notification.scss";

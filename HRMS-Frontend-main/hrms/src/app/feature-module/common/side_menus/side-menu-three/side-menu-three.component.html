@@ -1,0 +1,71 @@
+<!-- Two Col Sidebar -->
+<div
+  class="two-col-bar"
+  id="two-col-bar"
+  (mouseover)="miniSideBarMouseHover('over')"
+  (mouseout)="miniSideBarMouseHover('out')"
+>
+  <div class="sidebar sidebar-twocol">
+    <div class="sidebar-left slimscroll">
+      <perfect-scrollbar [scrollIndicators]="false">
+        <ul
+          class="nav flex-column nav-pills"
+          role="tablist"
+          aria-orientation="vertical"
+        >
+          <ng-container *ngFor="let mainTittle of side_bar_data">
+            <li class="nav-item" role="presentation">
+              <a
+                (click)="showTabs(mainTittle)"
+                class="nav-link"
+                [class.active]="mainTittle.showMyTab == true"
+              >
+                <span class="material-icons-outlined">
+                  {{ mainTittle.materialicons }}
+                </span>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </perfect-scrollbar>
+    </div>
+
+    <div
+      class="sidebar-right"
+      [ngClass]="showSubMenusTab == false ? 'show-sub-menu' : 'hide-sub-menu'"
+    >
+      <div class="tab-content">
+        <ng-container *ngFor="let mainTittle of side_bar_data">
+          <ng-container *ngIf="mainTittle.showMyTab == true">
+            <div class="">
+              <p>{{ mainTittle.menuValue }}</p>
+              <ul>
+                <ng-container *ngIf="mainTittle.hasSubRoute == true">
+                  <li *ngFor="let subMenus of mainTittle.subMenus">
+                    <a
+                      [routerLink]="subMenus.route"
+                      [class.active]="page === subMenus.base || page === subMenus.base2 || page === subMenus.base3 || page === subMenus.base4 || page === subMenus.base5 || page === subMenus.base6 || page === subMenus.base7 || page === subMenus.base8"
+                    >
+                      {{ subMenus.menuValue }}
+                    </a>
+                  </li>
+                </ng-container>
+                <ng-container>
+                  <li *ngIf="mainTittle.hasSubRoute == false" >
+                    <a
+                      [routerLink]="mainTittle.route"
+                      [class.active]="page === mainTittle.base"
+                    >
+                      {{ mainTittle.menuValue }}
+                    </a>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Two Col Sidebar -->

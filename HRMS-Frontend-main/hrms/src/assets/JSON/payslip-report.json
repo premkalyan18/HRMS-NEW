@@ -1,0 +1,50 @@
+{  
+    "data" : [
+    {
+      "id": 1,
+      "name1": "Bernardo Galaviz",
+      "name2": "Web Developer",
+      "paidamount": "$200",
+      "paymentmonth": "Apr",
+      "paymentyear": "2019",
+      "actions": "PDF"
+    },
+    {
+      "id": 2,
+      "name1": "Jeffrey Warden",
+      "name2": "Web Developer",
+      "paidamount": "$300",
+      "paymentmonth": "Dec",
+      "paymentyear": "2020",
+      "actions": "PDF"
+    },
+    {
+      "id": 3,
+      "name1": "John Doe",
+      "name2": "Web Designer",
+      "paidamount": "$400",
+      "paymentmonth": "Jun",
+      "paymentyear": "2020",
+      "actions": "PDF"
+    },
+    {
+      "id": 4,
+      "name1": "John Smith",
+      "name2": "Android Developer",
+      "paidamount": "$500",
+      "paymentmonth": "Feb",
+      "paymentyear": "2020",
+      "actions": "PDF"
+    },
+    {
+      "id": 5,
+      "name1": "Mike Litorus",
+      "name2": "IOS Developer",
+      "paidamount": "$600",
+      "paymentmonth": "Jan",
+      "paymentyear": "2020",
+      "actions": "PDF"
+    }
+  ],
+  "totalData":5
+}

@@ -1,0 +1,54 @@
+<ng-container *ngIf="isAuthenticated">
+
+
+  <div [ngClass]="{'main-width':layoutSidebarView == '2' && layoutWidth == '2'}">
+    <div class="main-wrapper" [ngClass]="{
+      'expand-menu': expandMenu == true && miniSidebar == true,
+      'mini-sidebar': miniSidebar == true || layoutWidth == '2',
+      'slide-nav': mobileSidebar == true,
+      orange: layoutColor == '1',
+      light: layoutColor == '2',
+      dark: layoutColor == '3',
+      blue: layoutColor == '4',
+      maroon: layoutColor == '5',
+      purple: layoutColor == '6',
+      headerlight: layoutTopColor == '1',
+      headerdark: layoutTopColor == '2',
+      sidebardark: layoutSidebarColor == '1',
+      sidebarlight: layoutSidebarColor == '2',
+      gradient: layoutSidebarColor == '3',
+      fluid: layoutWidth == '1',
+      boxed: layoutWidth == '2',
+      sidebardefault: layoutSidebarSize == '1',
+      md: layoutSidebarSize == '2',
+      'sm-hover': layoutSidebarSize == '3' || layoutWidth == '2',
+      fixed: layoutPositionScroll == '1',
+      scrollable: layoutPositionScroll == '2',
+      vertical: layoutPosition == '1',
+      horizontal: layoutPosition == '2',
+      twocolumn: layoutPosition == '3',
+      sideviewdefault: layoutSidebarView == '1',
+      detached: layoutSidebarView == '2',
+      'second-side-bar':(layoutWidth == '2' && layoutSidebarView == '2' ) && secondSideBar == true 
+    }">
+    <ng-container *ngIf="layoutPosition == '1'">
+      <app-header-one></app-header-one>
+      <app-side-menu-one [hidden]="!sidebarshow"></app-side-menu-one>
+    </ng-container>
+    <ng-container *ngIf="layoutPosition == '2'">
+      <app-header-two></app-header-two>
+      <app-side-menu-two [hidden]="!sidebarshow"></app-side-menu-two>
+    </ng-container>
+    <ng-container *ngIf="layoutPosition == '3'">
+      <app-header-three></app-header-three>
+      <app-side-menu-three [hidden]="!sidebarshow"></app-side-menu-three>
+    </ng-container>
+    <router-outlet></router-outlet>
+
+    <app-settings-menu></app-settings-menu>
+
+  </div>
+  </div>
+
+ 
+</ng-container>

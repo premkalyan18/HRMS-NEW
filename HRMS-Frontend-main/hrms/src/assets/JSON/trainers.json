@@ -1,0 +1,55 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name": "John Doe",
+          "lname": "Doe",
+          "role": "developer",
+          "contactNumber": "9876543210",
+          "mail": "johndoe@example.com",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        },
+        {
+          "id": 2,
+          "name": "Mike Litorus",
+          "lname": "Litorus",
+          "role": "developer",
+          "contactNumber": "9876543120",
+          "mail": "mikelitorus@example.com",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        },
+        {
+          "id": 3,
+          "name": "Wilmer Deluna",
+          "lname": "Deluna",
+          "role": "developer",
+          "contactNumber": "9876543210",
+          "mail": "wilmerdeluna@example.com",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        },
+        {
+          "id": 4,
+          "name": "John Smith",
+          "lname": "Smith",
+          "role": "developer",
+          "contactNumber": "9876543210",
+          "mail": "johnsmith@example.com",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        },
+        {
+          "id": 5,
+          "name": "Richard Milesh",
+          "lname": "Milesh",
+          "role": "developer",
+          "contactNumber": "9876543210",
+          "mail": "richardmiles@example.com",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        }
+      ],
+      "totalData":5
+}

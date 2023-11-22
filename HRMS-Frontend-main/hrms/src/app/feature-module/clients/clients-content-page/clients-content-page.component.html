@@ -1,0 +1,95 @@
+<app-clients-modal></app-clients-modal>
+<!-- Page Content -->
+<div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 class="page-title">Clients</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Clients</li>
+                </ul>
+            </div>
+            <div class="col-auto float-end ms-auto">
+                <a  class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_client" ><i
+                        class="fa-solid fa-plus"></i>
+                    Add Client</a>
+                <div class="view-icons">
+                    <a [routerLink]="'/clients/client-page'" class="grid-view btn btn-link active" ><i class="fa fa-th"></i></a>
+                    <a [routerLink]="'/clients/client-list'" class="list-view btn btn-link "><i
+                            class="fa-solid fa-bars"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Search Filter -->
+    <div class="row filter-row">
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group form-focus inputs">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Client ID</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group form-focus inputs">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Client Name</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group form-focus select-focus select">
+                <mat-form-field appearance="fill">
+                  <mat-label>Select an option</mat-label>
+                  <mat-select>
+                    <mat-option>Select Designation</mat-option>
+                    <mat-option value="option1">Global Technologies</mat-option>
+                    <mat-option value="option2">Delta Infotech</mat-option>
+                    <mat-option value="option3">Cream Inc</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <button class="btn btn-success w-100" > Search </button>
+        </div>
+    </div>
+    <!-- Search Filter -->
+
+    <div class="row staff-grid-row">
+        <div *ngFor="let data of clientsData; let i = index " class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+            <div class="profile-widget">
+                <div class="profile-img">
+                    <a [routerLink]="'/clients/client-profile'" class="avatar"><img alt=""
+                            src="assets/img/profiles/avatar-{{ i + 1 }}.jpg"></a>
+                </div>
+                <div class="dropdown profile-action">
+                    <a  class="action-icon dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="material-icons">more_vert</i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#edit_client"
+                            ><i class="fa-solid fa-pencil m-r-5"></i> Edit</a>
+                        <a class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#delete_client"
+                            ><i class="fa-regular fa-trash-can m-r-5"></i> Delete</a>
+                    </div>
+                </div>
+                <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a
+                    [routerLink]="'/clients/client-profile'">{{data.company}}</a>
+                </h4>
+                <h5 class="user-name m-t-10 mb-0 text-ellipsis"><a
+                    [routerLink]="'/clients/client-profile'">{{data.name}}</a></h5>
+                <div class="small text-muted">{{data.role}}</div>
+                <a [routerLink]="'/apps/chats'" class="btn btn-white btn-sm m-t-10 me-1">Message</a>
+                <a [routerLink]="'/clients/client-profile'" class="btn btn-white btn-sm m-t-10 ms-1">View Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->

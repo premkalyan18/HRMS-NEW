@@ -1,0 +1,58 @@
+
+<!-- Page Content -->
+<div class="content container-fluid">
+				
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3 class="page-title">Compose</h3>
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+					<li class="breadcrumb-item active">Compose</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /Page Header -->
+	
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-body">
+					<form>
+						<div class="form-group">
+							<input type="email" placeholder="To" class="form-control">
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="email" placeholder="Cc" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="email" placeholder="Bcc" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<input type="text" placeholder="Subject" class="form-control">
+						</div>
+						<div class="form-group">
+							<angular-editor ngDefaultControl [config]="config"> </angular-editor>
+						</div>
+						<div class="form-group mb-0">
+							<div class="text-center">
+								<button class="btn btn-primary me-1"><span>Send</span> <i class="fa-solid fa-paper-plane ms-1"></i></button>
+								<button class="btn btn-success me-1" type="button"><span>Draft</span> <i class="fa-regular fa-floppy-disk ms-1"></i></button>
+								<button class="btn btn-success me-1" type="button"><span>Delete</span> <i class="fa-regular fa-trash-can ms-1"></i></button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Page Content -->

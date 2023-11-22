@@ -1,0 +1,35 @@
+{
+    "data" : [
+        {
+          "taxName": "VAT",
+          "taxPercentage": "14%",
+          "id": 1
+        },
+        {
+          "taxName": "GST",
+          "taxPercentage": "30%",
+          "id": 2
+        },
+        {
+          "taxName": "GST",
+          "taxPercentage": "30%",
+          "id": 3
+        },
+        {
+          "taxName": "VAT",
+          "taxPercentage": "10%",
+          "id": 4
+        },
+        {
+          "taxName": "GST",
+          "taxPercentage": "25%",
+          "id": 5
+        },
+        {
+          "taxName": "VAT",
+          "taxPercentage": "20%",
+          "id": 6
+        }
+      ],
+      "totalData":6
+}

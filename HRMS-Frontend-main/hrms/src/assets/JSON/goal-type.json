@@ -1,0 +1,41 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "type": "Event goal",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        },
+        {
+          "id": 2,
+          "type": "Project goal",
+          "description": "Lorem ipsum dollar",
+          "status": "Inactive"
+        },
+        {
+          "id": 3,
+          "type": "Event goal",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        },
+        {
+          "id": 4,
+          "type": "Invoice goal",
+          "description": "Event goal tested",
+          "status": "active"
+        },
+        {
+          "id": 5,
+          "type": "Project goal",
+          "description": "Lorem ipsum dollar",
+          "status": "Inactive"
+        },
+        {
+          "id": 6,
+          "type": "Event goal",
+          "description": "Lorem ipsum dollar",
+          "status": "active"
+        }
+      ],
+      "totalData":6
+}

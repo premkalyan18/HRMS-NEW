@@ -1,0 +1,32 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "jobtitle": "Web Developer",
+          "department": "Development",
+          "startdate": "3 Mar 2019",
+          "expiredate": "31 May 2019",
+          "jobtype": "Full Time",
+          "status": "Open"
+        },
+        {
+          "id": 2,
+          "jobtitle": "Web Designer",
+          "department": "Designing",
+          "startdate": "3 Mar 2019",
+          "expiredate": "31 May 2019",
+          "jobtype": "Part Time",
+          "status": "Closed"
+        },
+        {
+          "id": 3,
+          "jobtitle": "Android Developer",
+          "department": "Android",
+          "startdate": "3 Mar 2019",
+          "expiredate": "31 May 2019",
+          "jobtype": "Internship",
+          "status": "Cancelled"
+        }
+      ],
+      "totalData":3
+}

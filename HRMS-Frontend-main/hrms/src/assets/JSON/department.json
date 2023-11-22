@@ -1,0 +1,29 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "departmentName": "Web Development"
+        },
+        {
+          "id": 2,
+          "departmentName": "Application Development"
+        },
+        {
+          "id": 3,
+          "departmentName": "IT Management"
+        },
+        {
+          "id": 4,
+          "departmentName": "Accounts Development"
+        },
+        {
+          "id": 5,
+          "departmentName": "Support Management"
+        },
+        {
+          "id": 6,
+          "departmentName": "Marketing"
+        }
+      ],
+      "totalData":6
+}

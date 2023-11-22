@@ -1,0 +1,372 @@
+<!-- Page Content -->
+<div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <h3 class="page-title">Offer Approvals</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+                    <li class="breadcrumb-item">Jobs</li>
+                    <li class="breadcrumb-item active">Offer Approvals</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table_header">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_length">
+                      <label>
+                        Show
+                        <select
+                          [(ngModel)]="pageSize"
+                          (ngModelChange)="changePageSize()"
+                          class="form-control form-control-sm"
+                        >
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                        </select>
+                        Entries
+                      </label>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="row">
+                  <div class="col-sm-12 col-md-6">
+                    <div class="dataTables_filter">
+                      <label>
+                        Search:
+                        <input
+                          [(ngModel)]="searchDataValue"
+                          (ngModelChange)="searchData(searchDataValue)"
+                          class="form-control form-control-sm"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="table-responsive">
+                <table   matSort
+                (matSortChange)="sortData($event)"
+                    class="table table-striped custom-table mb-0 datatable">
+                    <thead>
+                        <tr>
+                            <th mat-sort-header="id">#</th>
+                            <th mat-sort-header="name1">Name</th>
+                            <th mat-sort-header="jobtitle">Job Title</th>
+                            <th mat-sort-header="jobtype">Job Type</th>
+                            <th mat-sort-header="pay">Pay</th>
+                            <th mat-sort-header="annualip">Annual IP</th>
+                            <th mat-sort-header="longtermip">Long Term IP</th>
+                            <th mat-sort-header="status">Status</th>
+                            <th class="text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let fees of lstOffer;let i = index">
+                            <td>{{fees.id}}</td>
+                            <td>
+                                <h2 class="table-avatar">
+                                    <a [routerLink]="'/employees/employee-profile'" class="avatar"><img alt=""
+                                            src="assets/img/profiles/avatar-2.jpg"></a>
+                                    <a [routerLink]="'/employees/employee-profile'">{{fees.name1}}
+                                        <span>{{fees.name2}}</span></a>
+                                </h2>
+                            </td>
+                            <td><a [routerLink]="'/jobs/jobs-details'">{{fees.jobtitle}}</a></td>
+                            <td>{{fees.jobtype}}</td>
+                            <td>{{fees.pay}}</td>
+                            <td>{{fees.annualip}}</td>
+                            <td>{{fees.longtermip}}</td>
+                            <td><label class="badge bg-inverse-warning"
+                                    style="display: inline-block;min-width: 90px;">{{fees.status}}</label></td>
+                            <td class="text-end">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#"><i class="fa-regular fa-thumbs-up m-r-5"></i>
+                                            Approved</a>
+                                        <a class="dropdown-item" href="#"><i class="fa-solid fa-ban m-r-5"></i> Rejected</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="lstOffer.length === 0">
+                          <td colspan="10">
+                            <h5 style="text-align: center;">No data found</h5>
+                          </td>
+                          </tr> 
+                    </tbody>
+                </table>
+            </div>
+            <div class="table_footer">
+                <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info">
+                    Showing {{ serialNumberArray[0] }} to
+                    {{ serialNumberArray[serialNumberArray.length - 1] }} of
+                    {{ totalData }} entries
+                  </div>
+                </div>
+        
+                <div class="col-sm-12 col-md-7">
+                  <div class="pagination_section">
+                    <ul class="pagination">
+                      <li
+                        class="page-item"
+                        [ngClass]="{
+                          disabled: currentPage == 1
+                        }"
+                      >
+                        <a
+                          (click)="getMoreData('previous')"
+                          class="page-link"
+                          href="javascript:void(0);"
+                          tabindex="-1"
+                          >Previous</a
+                        >
+                      </li>
+        
+                      <ng-container *ngFor="let item of pageNumberArray; let i = index">
+                        <li
+                          class="page-item"
+                          [class.active]="item === currentPage"
+                          [ngClass]="
+                            (pageNumberArray[currentPage - 2] > item &&
+                              item != 1 &&
+                              pageNumberArray.length > 6) ||
+                            (pageNumberArray[currentPage] < item &&
+                              item != 1 &&
+                              pageNumberArray.length > 6 &&
+                              pageNumberArray.length != item)
+                              ? 'hide-page-no'
+                              : 'show-page-no'
+                          "
+                        >
+                          <a
+                            (click)="moveToPage(item)"
+                            class="page-link"
+                            href="javascript:void(0);"
+                          >
+                            {{ item }}
+                          </a>
+                        </li>
+                        <li
+                          class="page-item"
+                          *ngIf="
+                            i == 0 && pageNumberArray.length > 6 && currentPage > 2
+                          "
+                          [hidden]="currentPage == 1"
+                          (click)="moveToPage(currentPage - 2)"
+                        >
+                          <a class="page-link" href="javascript:void(0);"> ... </a>
+                        </li>
+                        <li
+                          *ngIf="
+                            i == pageNumberArray.length - 2 &&
+                            pageNumberArray.length > 6
+                          "
+                          [hidden]="
+                            currentPage >=
+                              pageNumberArray[pageNumberArray.length - 2] ||
+                            totalData < serialNumberArray[serialNumberArray.length - 1]
+                          "
+                          class="page-item"
+                          (click)="moveToPage(currentPage + 2)"
+                        >
+                          <a class="page-link" href="javascript:void(0);"> ... </a>
+                        </li>
+                      </ng-container>
+        
+                      <li
+                        class="page-item"
+                        [ngClass]="{
+                          disabled:
+                            currentPage ==
+                              pageNumberArray[pageNumberArray.length - 1] ||
+                            lstOffer.length == 0
+                        }"
+                      >
+                        <a
+                          (click)="getMoreData('next')"
+                          class="page-link"
+                          href="javascript:void(0);"
+                          >Next
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->
+<!-- Edit Job Modal -->
+<div id="edit_job" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Job</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Job Title</label>
+                                <input class="form-control" type="text" value="Web Developer">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Department</label>
+                                <select class="form-select">
+                                    <option>-</option>
+                                    <option selected>Web Development</option>
+                                    <option>Application Development</option>
+                                    <option>IT Management</option>
+                                    <option>Accounts Management</option>
+                                    <option>Support Management</option>
+                                    <option>Marketing</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Job Location</label>
+                                <input class="form-control" type="text" value="California">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>No of Vacancies</label>
+                                <input class="form-control" type="text" value="5">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Experience</label>
+                                <input class="form-control" type="text" value="2 Years">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input class="form-control" type="text" value="-">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Salary From</label>
+                                <input type="text" class="form-control" value="32k">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Salary To</label>
+                                <input type="text" class="form-control" value="38k">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Job Type</label>
+                                <select class="form-select">
+                                    <option selected>Full Time</option>
+                                    <option>Part Time</option>
+                                    <option>Internship</option>
+                                    <option>Temporary</option>
+                                    <option>Remote</option>
+                                    <option>Others</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select class="form-select">
+                                    <option selected>Open</option>
+                                    <option>Closed</option>
+                                    <option>Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <input type="text" class="form-control datetimepicker" value="3 Mar 2019">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Expired Date</label>
+                                <input type="text" class="form-control datetimepicker" value="31 May 2019">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Edit Job Modal -->
+
+<!-- Delete Job Modal -->
+<div class="modal custom-modal fade" id="delete_job" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h3>Delete</h3>
+                    <p>Are you sure want to delete?</p>
+                </div>
+                <div class="modal-btn delete-action">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="javascript:void(0);" data-bs-dismiss="modal"
+                                class="btn btn-primary cancel-btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Delete Job Modal -->

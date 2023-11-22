@@ -1,0 +1,29 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name1": "John Doe",
+          "name2": "Web Designer",
+          "jobtitle": "Web Developer",
+          "department": "Development",
+          "status": "Offered"
+        },
+        {
+          "id": 2,
+          "name1": "Richard Miles",
+          "name2": "Web Developer",
+          "jobtitle": "Web Designer",
+          "department": "Designing",
+          "status": "Offered"
+        },
+        {
+          "id": 3,
+          "name1": "John Smith",
+          "name2": "Android Developer",
+          "jobtitle": "Android Developer",
+          "department": "Android",
+          "status": "Offered"
+        }
+      ],
+      "totalData":3
+}

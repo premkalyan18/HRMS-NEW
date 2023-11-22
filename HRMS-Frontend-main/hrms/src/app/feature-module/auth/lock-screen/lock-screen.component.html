@@ -1,0 +1,86 @@
+
+<div class="account-page">
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <div class="account-content">
+            <div class="container">
+    
+                <!-- Account Logo -->
+                <div class="account-logo">
+                    <a routerLink="/layout/dashboard/admin"><img src="assets/img/logo5.png" alt="Dreamguy's Technologies" style="width:500px"></a>
+                </div>
+                <!-- /Account Logo -->
+    
+                <div class="account-box">
+                    <div class="account-wrapper">
+    
+                        <!-- Lock User Img -->
+                        <!-- <div class="lock-user">
+                            <img alt="" src="assets/img/profiles/avatar-2.jpg" class="rounded-circle">
+                            <h4>John Doe</h4>
+                        </div> -->
+                        <!-- /Lock User Img -->
+    
+                        <!-- Account Form -->
+                        <form [formGroup]="form" (ngSubmit)="submit()">
+                            <!-- <div class="form-group">
+                                <label>Password</label>
+                                <input class="form-control" type="password">
+                            </div> -->
+    
+                        
+                  <div class="form-group">
+                    <label>Password<span class="mandatory">*</span></label>
+                   
+                    <input class="form-control" type="password" [type]="Toggledata ? 'password' : 'text'" formControlName="password" id="password" [ngClass]="{'is-invalid': f['password'].touched && f['password'].invalid}" />
+              
+                   
+                    <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
+                        <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+                    </div>
+                    <!-- <div *ngIf="CustomControler !=0" class="text-danger">
+                      {{CustomControler.password}}
+                  </div> -->
+                  </div>
+                  <div class="form-group">
+                    <label>Confirm Password<span class="mandatory">*</span></label>
+                    <input class="form-control" type="password" formControlName="confirm_password" id="confirm_password"/>
+                    <div *ngIf="f['confirm_password'].touched && f['confirm_password'].invalid" class="text-danger">
+                        <div *ngIf="f['confirm_password'].errors && f['confirm_password'].errors['required']">
+                            Confirm Password is required.
+                        </div>
+                    </div>
+                    <div *ngIf=isvalidconfirmpassword class="text-danger">
+                        Password not matching
+                    </div>
+                      <!-- <div *ngIf="CustomControler !=0" class="text-success">
+                    {{CustomControler.message}}
+                </div> -->
+                <!-- <div *ngIf="CustomControler != 0" [style.color]="CustomControler.message.length === 27 ? '#5cb85c' : '#d9534f'">
+                    {{ CustomControler.message }}
+                </div> -->
+                  
+                  </div>
+                  <div class="text-center" *ngIf="loading">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </div>  
+                            <div class="form-group text-center">
+                                <button class="btn btn-primary account-btn" type="submit" [disabled]="form.invalid">Enter</button>
+                            </div>
+                             
+                            <div class="account-footer">
+                                <p>Sign in as a different user? <a [routerLink]="'/login'">Login</a></p>
+                            </div>
+                            
+                        </form>
+                        <!-- /Account Form -->
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Main Wrapper -->
+    </div>

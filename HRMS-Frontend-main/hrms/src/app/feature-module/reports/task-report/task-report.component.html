@@ -1,0 +1,238 @@
+				<!-- Page Content -->
+                <div class="content container-fluid">
+					
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row">
+							<div class="col-sm-12">
+								<h3 class="page-title">Task Reports</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+									<li class="breadcrumb-item active">Task Reports</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+					
+						<!-- Content Starts -->
+						<!-- Search Filter -->
+					<div class="row filter-row">
+						<div class="col-sm-6 col-md-3">  
+							<div class="form-group form-focus select-focus select">
+								<mat-form-field appearance="fill">
+								  <mat-label>Project Name</mat-label>
+								  <mat-select>
+									<mat-option> -- Select -- </mat-option>
+									<mat-option value="option1">Smart Hr</mat-option>
+									<mat-option value="option2">Doccure</mat-option>
+								  </mat-select>
+								</mat-form-field>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">  
+							<div class="form-group form-focus select-focus select">
+								<mat-form-field appearance="fill">
+								  <mat-label>Status</mat-label>
+								  <mat-select>
+									<mat-option> -- Select -- </mat-option>
+									<mat-option value="option1">All</mat-option>
+									<mat-option value="option2">Option</mat-option>
+									<mat-option value="option3">Completed</mat-option>
+								  </mat-select>
+								</mat-form-field>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-3">  
+							<a href="#" class="btn btn-success w-100"> Search </a>  
+						</div>     
+                    </div>
+					<!-- /Search Filter -->
+					
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table_header">
+								<div class="row">
+								  <div class="col-sm-12 col-md-6">
+									<div class="dataTables_length">
+									  <label>
+										Show
+										<select
+										  [(ngModel)]="pageSize"
+										  (ngModelChange)="changePageSize()"
+										  class="form-control form-control-sm"
+										>
+										  <option value="10">10</option>
+										  <option value="25">25</option>
+										  <option value="50">50</option>
+										  <option value="100">100</option>
+										</select>
+										Entries
+									  </label>
+									</div>
+								  </div>
+								</div>
+						
+								<div class="row">
+								  <div class="col-sm-12 col-md-6">
+									<div class="dataTables_filter">
+									  <label>
+										Search:
+										<input
+										  [(ngModel)]="searchDataValue"
+										  (ngModelChange)="searchData(searchDataValue)"
+										  class="form-control form-control-sm"
+										/>
+									  </label>
+									</div>
+								  </div>
+								</div>
+							  </div>
+							<div class="table-responsive">
+								<table  matSort
+								(matSortChange)="sortData($event)"
+								class="table table-striped custom-table">
+									<thead>
+										<tr>
+											<th mat-sort-header="id">#</th>
+											<th mat-sort-header="taskname">Task Name</th>
+											<th mat-sort-header="startdate">Start Date</th>
+											<th mat-sort-header="enddate">End Date</th>
+											<th mat-sort-header="status-toggle">Status</th>
+											<th>Assigned To</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let students of lstStudents;let i = index">
+											<td>{{students.id}}</td>
+											<td>{{students.taskname}}</td>
+											<td>{{students.startdate}}</td>
+											<td>{{students.enddate}}</td>
+											
+											<td>
+												<div class="dropdown action-label">
+													<a href="#" class="btn btn-white btn-sm btn-rounded"><i class="fa-regular fa-circle-dot text-success"></i> {{students.status}} </a>
+													
+												</div>
+											</td>
+									    		<td>
+												<ul class="team-members">
+													<li>
+														<a href="#" data-bs-toggle="tooltip" title="" data-original-title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
+													</li>
+												</ul>
+											</td>
+										</tr>
+										<tr *ngIf="lstStudents.length === 0">
+											<td colspan="10">
+												<h5 style="text-align: center;">No data found</h5>
+											</td>
+										</tr> 
+									</tbody>
+								</table>
+							</div>
+							<div class="table_footer">
+								<div class="col-sm-12 col-md-5">
+								  <div class="dataTables_info">
+									Showing {{ serialNumberArray[0] }} to
+									{{ serialNumberArray[serialNumberArray.length - 1] }} of
+									{{ totalData }} entries
+								  </div>
+								</div>
+						
+								<div class="col-sm-12 col-md-7">
+								  <div class="pagination_section">
+									<ul class="pagination">
+									  <li
+										class="page-item"
+										[ngClass]="{
+										  disabled: currentPage == 1
+										}"
+									  >
+										<a
+										  (click)="getMoreData('previous')"
+										  class="page-link"
+										  href="javascript:void(0);"
+										  tabindex="-1"
+										  >Previous</a
+										>
+									  </li>
+						
+									  <ng-container *ngFor="let item of pageNumberArray; let i = index">
+										<li
+										  class="page-item"
+										  [class.active]="item === currentPage"
+										  [ngClass]="
+											(pageNumberArray[currentPage - 2] > item &&
+											  item != 1 &&
+											  pageNumberArray.length > 6) ||
+											(pageNumberArray[currentPage] < item &&
+											  item != 1 &&
+											  pageNumberArray.length > 6 &&
+											  pageNumberArray.length != item)
+											  ? 'hide-page-no'
+											  : 'show-page-no'
+										  "
+										>
+										  <a
+											(click)="moveToPage(item)"
+											class="page-link"
+											href="javascript:void(0);"
+										  >
+											{{ item }}
+										  </a>
+										</li>
+										<li
+										  class="page-item"
+										  *ngIf="
+											i == 0 && pageNumberArray.length > 6 && currentPage > 2
+										  "
+										  [hidden]="currentPage == 1"
+										  (click)="moveToPage(currentPage - 2)"
+										>
+										  <a class="page-link" href="javascript:void(0);"> ... </a>
+										</li>
+										<li
+										  *ngIf="
+											i == pageNumberArray.length - 2 &&
+											pageNumberArray.length > 6
+										  "
+										  [hidden]="
+											currentPage >=
+											  pageNumberArray[pageNumberArray.length - 2] ||
+											totalData < serialNumberArray[serialNumberArray.length - 1]
+										  "
+										  class="page-item"
+										  (click)="moveToPage(currentPage + 2)"
+										>
+										  <a class="page-link" href="javascript:void(0);"> ... </a>
+										</li>
+									  </ng-container>
+						
+									  <li
+										class="page-item"
+										[ngClass]="{
+										  disabled:
+											currentPage ==
+											  pageNumberArray[pageNumberArray.length - 1] ||
+											lstStudents.length == 0
+										}"
+									  >
+										<a
+										  (click)="getMoreData('next')"
+										  class="page-link"
+										  href="javascript:void(0);"
+										  >Next
+										</a>
+									  </li>
+									</ul>
+								  </div>
+								</div>
+							  </div>
+						</div>
+					</div>
+                
+					<!-- /Content End -->
+					
+                </div>
+				<!-- /Page Content -->

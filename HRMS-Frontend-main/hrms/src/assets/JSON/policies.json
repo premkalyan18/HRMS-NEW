@@ -1,0 +1,47 @@
+{
+    "data" : [
+        {
+          "policyName": "Leave Policy",
+          "department": "All Departments",
+          "description": "Lorem ipsum dollar",
+          "createdDate": "19 Feb 2019",
+          "id": 1
+        },
+        {
+          "policyName": "Permission Policy",
+          "department": "Marketing",
+          "description": "Lorem ipsum dollar",
+          "createdDate": "18 Feb 2019",
+          "id": 2
+        },
+        {
+          "policyName": "Leave Policy",
+          "department": "All Departments",
+          "description": "Lorem ipsum dollar",
+          "createdDate": "19 Feb 2019",
+          "id": 3
+        },
+        {
+          "policyName": "Permission Policy",
+          "department": "Marketing",
+          "description": "Lorem ipsum dollar",
+          "createdDate": "25 Feb 2019",
+          "id": 4
+        },
+        {
+          "policyName": "Leave Policy",
+          "department": "All Departments",
+          "description": "Lorem ipsum dollar",
+          "createdDate": "18 Feb 2019",
+          "id": 5
+        },
+        {
+          "policyName": "Permission Policy",
+          "department": "Marketing",
+          "description": "Lorem ipsum dollar",
+          "createdDate": "22 Feb 2019",
+          "id": 6
+        }
+      ],
+      "totalData":6
+}

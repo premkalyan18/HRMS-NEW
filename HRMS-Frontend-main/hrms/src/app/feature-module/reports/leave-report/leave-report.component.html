@@ -1,0 +1,214 @@
+<!-- Page Content -->
+<div class="content container-fluid">
+
+	<!-- Page Header -->
+	<div class="page-header">
+		<div class="row">
+			<div class="col">
+				<h3 class="page-title">Leave Report</h3>
+				<ul class="breadcrumb">
+					<li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+					<li class="breadcrumb-item active">Leave Report</li>
+				</ul>
+			</div>
+			<div class="col-auto">
+				<a href="#" class="btn btn-primary">PDF</a>
+			</div>
+		</div>
+	</div>
+	<!-- /Page Header -->
+
+	<!-- Search Filter -->
+	<div class="row filter-row mb-4">
+		<div class="col-sm-6 col-md-3">
+			<div class="form-group form-focus inputs">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Employee ID</mat-label>
+                    <input type="text" matInput>
+                </mat-form-field>
+            </div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="form-group form-focus select-focus select">
+                <mat-form-field appearance="fill">
+                  <mat-label>Department</mat-label>
+                  <mat-select>
+                    <mat-option> -- Select -- </mat-option>
+                    <mat-option value="option1">Designing</mat-option>
+                    <mat-option value="option2">Development</mat-option>
+                    <mat-option value="option3">Finance</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="form-group form-focus inputs">
+                <mat-form-field class="example-full-width cal-icon">
+                    <mat-label>From</mat-label>
+                    <input class="form-control datetimepicker" bsDatepicker type="text" matInput>
+                </mat-form-field>
+            </div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<div class="form-group form-focus inputs">
+                <mat-form-field class="example-full-width cal-icon">
+                    <mat-label>From</mat-label>
+                    <input class="form-control datetimepicker" bsDatepicker type="text" matInput>
+                </mat-form-field>
+            </div>
+		</div>
+		<div class="col-sm-6 col-md-3">
+			<a href="#" class="btn btn-success w-100"> Search </a>
+		</div>
+	</div>
+	<!-- /Search Filter -->
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="table_header">
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<div class="dataTables_length">
+							<label>
+								Show
+								<select [(ngModel)]="pageSize" (ngModelChange)="changePageSize()"
+									class="form-control form-control-sm">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								Entries
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<div class="dataTables_filter">
+							<label>
+								Search:
+								<input [(ngModel)]="searchDataValue" (ngModelChange)="searchData(searchDataValue)"
+									class="form-control form-control-sm" />
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="table-responsive">
+				<table matSort (matSortChange)="sortData($event)"
+					class="table table-striped custom-table mb-0 datatable">
+					<thead>
+						<tr>
+							<th mat-sort-header="name1">Employee</th>
+							<th mat-sort-header="date">Date</th>
+							<th mat-sort-header="department">Department</th>
+							<th mat-sort-header="leavetype">Leave Type</th>
+							<th mat-sort-header="noofdays">No.of Days</th>
+							<th mat-sort-header="remainingleave">Remaining Leave</th>
+							<th mat-sort-header="totalleaves">Total Leaves</th>
+							<th mat-sort-header="totalleavetaken">Total Leave Taken</th>
+							<th mat-sort-header="leavecarryforward">Leave Carry Forward</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let fees of lstleavereport;let i = index">
+							<td>
+								<h2 class="table-avatar">
+									<a [routerLink]="'/employees/employee-profile'" class="avatar"><img alt=""
+											src="assets/img/profiles/avatar-2.jpg"></a>
+									<a [routerLink]="'/employees/employee-profile'">{{fees.name1}}
+										<span>#{{fees.name2}}</span></a>
+								</h2>
+							</td>
+							<td>{{fees.date}}</td>
+							<td>{{fees.department}}</td>
+							<td class="text-center">
+								<button class="btn btn-outline-info btn-sm">{{fees.leavetype}}</button>
+							</td>
+							<td class="text-center"><span class="btn btn-danger btn-sm">{{fees.noofdays}}</span></td>
+							<td class="text-center"><span
+									class="btn btn-warning btn-sm"><b>{{fees.remainingleave}}</b></span></td>
+							<td class="text-center"><span
+									class="btn btn-success btn-sm"><b>{{fees.totalleaves}}</b></span></td>
+							<td class="text-center">{{fees.totalleavetaken}}</td>
+							<td class="text-center">{{fees.leavecarryforward}}</td>
+						</tr>
+						<tr *ngIf="lstleavereport.length === 0">
+							<td colspan="10">
+								<h5 style="text-align: center;">No data found</h5>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="table_footer">
+				<div class="col-sm-12 col-md-5">
+					<div class="dataTables_info">
+						Showing {{ serialNumberArray[0] }} to
+						{{ serialNumberArray[serialNumberArray.length - 1] }} of
+						{{ totalData }} entries
+					</div>
+				</div>
+
+				<div class="col-sm-12 col-md-7">
+					<div class="pagination_section">
+						<ul class="pagination">
+							<li class="page-item" [ngClass]="{
+										  disabled: currentPage == 1
+										}">
+								<a (click)="getMoreData('previous')" class="page-link" href="javascript:void(0);"
+									tabindex="-1">Previous</a>
+							</li>
+
+							<ng-container *ngFor="let item of pageNumberArray; let i = index">
+								<li class="page-item" [class.active]="item === currentPage" [ngClass]="
+											(pageNumberArray[currentPage - 2] > item &&
+											  item != 1 &&
+											  pageNumberArray.length > 6) ||
+											(pageNumberArray[currentPage] < item &&
+											  item != 1 &&
+											  pageNumberArray.length > 6 &&
+											  pageNumberArray.length != item)
+											  ? 'hide-page-no'
+											  : 'show-page-no'
+										  ">
+									<a (click)="moveToPage(item)" class="page-link" href="javascript:void(0);">
+										{{ item }}
+									</a>
+								</li>
+								<li class="page-item" *ngIf="
+											i == 0 && pageNumberArray.length > 6 && currentPage > 2
+										  " [hidden]="currentPage == 1" (click)="moveToPage(currentPage - 2)">
+									<a class="page-link" href="javascript:void(0);"> ... </a>
+								</li>
+								<li *ngIf="
+											i == pageNumberArray.length - 2 &&
+											pageNumberArray.length > 6
+										  " [hidden]="
+											currentPage >=
+											  pageNumberArray[pageNumberArray.length - 2] ||
+											totalData < serialNumberArray[serialNumberArray.length - 1]
+										  " class="page-item" (click)="moveToPage(currentPage + 2)">
+									<a class="page-link" href="javascript:void(0);"> ... </a>
+								</li>
+							</ng-container>
+
+							<li class="page-item" [ngClass]="{
+										  disabled:
+											currentPage ==
+											  pageNumberArray[pageNumberArray.length - 1] ||
+											lstleavereport.length == 0
+										}">
+								<a (click)="getMoreData('next')" class="page-link" href="javascript:void(0);">Next
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Page Content -->

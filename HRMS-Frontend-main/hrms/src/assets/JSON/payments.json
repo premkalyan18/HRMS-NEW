@@ -1,0 +1,53 @@
+{
+    "data" : [
+        {
+          "invoiceId": "#INV-0001",
+          "client": "Global Technologies",
+          "paymenttype": "Paypal",
+          "paidDate": "8 Feb 2019",
+          "paidAmount": "$500",
+          "id": 1
+        },
+        {
+          "invoiceId": "#INV-0002",
+          "client": "Delta Infotech",
+          "paymenttype": "Paypal",
+          "paidDate": "9 Jan 2019",
+          "paidAmount": "$420",
+          "id": 2
+        },
+        {
+          "invoiceId": "#INV-0003",
+          "client": "Savior Inc",
+          "paymenttype": "Paypal",
+          "paidDate": "8 Ma2019",
+          "paidAmount": "$600",
+          "id": 3
+        },
+        {
+          "invoiceId": "#INV-0004",
+          "client": "Nata ltd",
+          "paymenttype": "Paypal",
+          "paidDate": "10 Jul 2019",
+          "paidAmount": "$410",
+          "id": 4
+        },
+        {
+          "invoiceId": "#INV-0005",
+          "client": "Paypal",
+          "paymenttype": "Paypal",
+          "paidDate": "10 Dec 2019",
+          "paidAmount": "$250",
+          "id": 5
+        },
+        {
+          "invoiceId": "#INV-0006",
+          "client": "Tell Inc",
+          "paymenttype": "Paypal",
+          "paidDate": "10 Apr 2019",
+          "paidAmount": "$300",
+          "id": 6
+        }
+      ],
+      "totalData":6
+}

@@ -1,0 +1,60 @@
+<!-- Sidebar -->
+<div
+  class="sidebar"
+  (mouseover)="miniSideBarMouseHover('over')"
+  (mouseout)="miniSideBarMouseHover('out')"
+  id="sidebar"
+>
+<perfect-scrollbar [scrollIndicators]="false">
+
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul class="sidebar-vertical">
+                <ng-container *ngFor="let mainTittle of side_bar_data">
+                    <li class="menu-title"> 
+                        <span>{{ mainTittle.tittle }}</span>
+                    </li>
+                    <ng-container *ngFor="let menu of mainTittle?.menu">
+                        <li 
+                            [class.active]="base === menu.base"
+                            *ngIf="menu?.hasSubRoute == false"
+                        >
+                            <a [routerLink]="menu?.route"
+                                ><i [class]="'la la-' + menu.icon"></i> 
+                                <span>{{ menu?.menuValue }}</span>
+                            </a>
+                        </li>
+                        <li 
+                            class="submenu"
+                            *ngIf="menu.hasSubRoute == true"
+                            [class.active]="base === menu.base"
+                           
+                        >
+                            <a  href="javascript:void(0)"  (click)="expandSubMenus(menu)"
+                                [ngClass]="{ subdrop: menu.showSubRoute == true }">
+                                <i [class]="'la la-' + menu.icon"></i> 
+                                <span>{{ menu.menuValue }}</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul
+                                [ngClass]="
+                                menu.showSubRoute == true
+                                ? 'show-sub-menu'
+                                : 'hide-sub-menu'
+                            ">
+                                <ng-container *ngFor="let subMenus of menu.subMenus">
+                                <li>
+                                    <a [routerLink]="subMenus.route"
+                                    [class.active]="page === subMenus.base || page === subMenus.base2 || page === subMenus.base3 || page === subMenus.base4 || page === subMenus.base5 || page === subMenus.base6 || page === subMenus.base7 || page === subMenus.base8"
+                                    >{{ subMenus.menuValue }}</a>
+                                </li>
+                            </ng-container>
+                            </ul>
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</perfect-scrollbar>
+</div>

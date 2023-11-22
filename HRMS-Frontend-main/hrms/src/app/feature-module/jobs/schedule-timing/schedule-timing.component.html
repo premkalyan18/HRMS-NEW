@@ -1,0 +1,277 @@
+<!-- Page Content -->
+<div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <h3 class="page-title">Schedule timing</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+                    <li class="breadcrumb-item">Jobs</li>
+                    <li class="breadcrumb-item active">Schedule timing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table_header">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dataTables_length">
+                            <label>
+                                Show
+                                <select [(ngModel)]="pageSize" (ngModelChange)="changePageSize()"
+                                    class="form-control form-control-sm">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                Entries
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dataTables_filter">
+                            <label>
+                                Search:
+                                <input [(ngModel)]="searchDataValue" (ngModelChange)="searchData(searchDataValue)"
+                                    class="form-control form-control-sm" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table matSort (matSortChange)="sortData($event)"
+                    class="table table-striped custom-table mb-0 datatable">
+                    <thead>
+                        <tr>
+                            <th mat-sort-header="id">#</th>
+                            <th mat-sort-header="name1">Name</th>
+                            <th mat-sort-header="jobtitle">Job Title</th>
+                            <th mat-sort-header="useravailabletimings">User Available Timings</th>
+                            <th class="text-center">Schedule timing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let fees of lstSchedule;let i = index">
+                            <td>{{fees.id}}</td>
+                            <td>
+                                <h2 class="table-avatar">
+                                    <a [routerLink]="'/employees/employee-profile'" class="avatar"><img alt=""
+                                            src="assets/img/profiles/avatar-2.jpg"></a>
+                                    <a [routerLink]="'/employees/employee-profile'">{{fees.name1}}
+                                        <span>{{fees.name2}}</span></a>
+                                </h2>
+                            </td>
+                            <td><a [routerLink]="'/jobs/jobs-details'">{{fees.jobtitle}}</a></td>
+                            <td><b>{{fees.useravailable}}</b>{{fees.useravailabletimings}}<br><b>{{fees.useravailable1}}</b>
+                                {{fees.useravailabletimings1}}<br><b>{{fees.useravailable2}}</b>
+                                {{fees.useravailabletimings2}}<br> </td>
+                            <td class="text-center">
+                                <div class="action-label">
+                                    <a class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit_job"
+                                        href="#">
+                                        Schedule Time
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="lstSchedule.length === 0">
+                            <td colspan="10">
+                              <h5 style="text-align: center;">No data found</h5>
+                            </td>
+                          </tr> 
+                    </tbody>
+                </table>
+            </div>
+            <div class="table_footer">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info">
+                        Showing {{ serialNumberArray[0] }} to
+                        {{ serialNumberArray[serialNumberArray.length - 1] }} of
+                        {{ totalData }} entries
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-7">
+                    <div class="pagination_section">
+                        <ul class="pagination">
+                            <li class="page-item" [ngClass]="{
+                          disabled: currentPage == 1
+                        }">
+                                <a (click)="getMoreData('previous')" class="page-link" href="javascript:void(0);"
+                                    tabindex="-1">Previous</a>
+                            </li>
+
+                            <ng-container *ngFor="let item of pageNumberArray; let i = index">
+                                <li class="page-item" [class.active]="item === currentPage" [ngClass]="
+                            (pageNumberArray[currentPage - 2] > item &&
+                              item != 1 &&
+                              pageNumberArray.length > 6) ||
+                            (pageNumberArray[currentPage] < item &&
+                              item != 1 &&
+                              pageNumberArray.length > 6 &&
+                              pageNumberArray.length != item)
+                              ? 'hide-page-no'
+                              : 'show-page-no'
+                          ">
+                                    <a (click)="moveToPage(item)" class="page-link" href="javascript:void(0);">
+                                        {{ item }}
+                                    </a>
+                                </li>
+                                <li class="page-item" *ngIf="
+                            i == 0 && pageNumberArray.length > 6 && currentPage > 2
+                          " [hidden]="currentPage == 1" (click)="moveToPage(currentPage - 2)">
+                                    <a class="page-link" href="javascript:void(0);"> ... </a>
+                                </li>
+                                <li *ngIf="
+                            i == pageNumberArray.length - 2 &&
+                            pageNumberArray.length > 6
+                          " [hidden]="
+                            currentPage >=
+                              pageNumberArray[pageNumberArray.length - 2] ||
+                            totalData < serialNumberArray[serialNumberArray.length - 1]
+                          " class="page-item" (click)="moveToPage(currentPage + 2)">
+                                    <a class="page-link" href="javascript:void(0);"> ... </a>
+                                </li>
+                            </ng-container>
+
+                            <li class="page-item" [ngClass]="{
+                          disabled:
+                            currentPage ==
+                              pageNumberArray[pageNumberArray.length - 1] ||
+                            lstSchedule.length == 0
+                        }">
+                                <a (click)="getMoreData('next')" class="page-link" href="javascript:void(0);">Next
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->
+<!-- Edit Job Modal -->
+<div id="edit_job" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Schedule Date 1</label>
+                                <input type="text" class="form-control datetimepicker" value="3 Mar 2019">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Select Time</label>
+                                <select class="form-select form-control">
+                                    <option>Select Time</option>
+                                    <option selected>12:00 AM-01:00 AM</option>
+                                    <option>01:00 AM-02:00 AM</option>
+                                    <option>02:00 AM-03:00 AM</option>
+                                    <option>03:00 AM-04:00 AM</option>
+                                    <option>04:00 AM-05:00 AM</option>
+                                    <option>05:00 AM-06:00 AM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Schedule Date 2</label>
+                                <input type="text" class="form-control datetimepicker" value="3 Mar 2019">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Select Time</label>
+                                <select class="form-select form-control">
+                                    <option>Select Time</option>
+                                    <option selected>12:00 AM-01:00 AM</option>
+                                    <option>01:00 AM-02:00 AM</option>
+                                    <option>02:00 AM-03:00 AM</option>
+                                    <option>03:00 AM-04:00 AM</option>
+                                    <option>04:00 AM-05:00 AM</option>
+                                    <option>05:00 AM-06:00 AM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Schedule Date 3</label>
+                                <input type="text" class="form-control datetimepicker" value="3 Mar 2019">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Select Time</label>
+                                <select class="form-select form-control">
+                                    <option>Select Time</option>
+                                    <option selected>12:00 AM-01:00 AM</option>
+                                    <option>01:00 AM-02:00 AM</option>
+                                    <option>02:00 AM-03:00 AM</option>
+                                    <option>03:00 AM-04:00 AM</option>
+                                    <option>04:00 AM-05:00 AM</option>
+                                    <option>05:00 AM-06:00 AM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Edit Job Modal -->
+
+<!-- Delete Job Modal -->
+<div class="modal custom-modal fade" id="delete_job" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h3>Delete</h3>
+                    <p>Are you sure want to delete?</p>
+                </div>
+                <div class="modal-btn delete-action">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="javascript:void(0);" data-bs-dismiss="modal"
+                                class="btn btn-primary cancel-btn">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Delete Job Modal -->

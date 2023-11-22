@@ -1,0 +1,150 @@
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-inner slimscroll">
+    <div id="sidebar-menu" class="sidebar-menu">
+      <nav class="greedys">
+        <ul class="list-inline-item list-unstyled links sidebar-horizantal">
+          <ng-container
+            *ngFor="
+              let mainTittle of side_bar_data;
+              let mainTittleIndex = index
+            "
+          >
+            <li class="menu-title">
+              <span>{{ mainTittle.tittle }} 1</span>
+            </li>
+            <ng-container
+              *ngFor="let menu of mainTittle?.menu; let menuIndex = index"
+            >
+              <li
+                [class.active]="base === menu.base"
+                *ngIf="
+                  menu?.hasSubRoute == false &&
+                  (menu.menuValue == 'Clients' ||
+                    menu.menuValue == 'Leads' ||
+                    menu.menuValue == 'Tickets')
+                "
+              >
+                <a [routerLink]="menu?.route"
+                  ><i [class]="'la la-' + menu.icon"></i>
+                  <span>{{ menu?.menuValue }} </span>
+                </a>
+              </li>
+              <li
+                class="submenu"
+                *ngIf="
+                  menu.hasSubRoute == true &&
+                  (menu.menuValue == 'Dashboard' ||
+                    menu.menuValue == 'Apps' ||
+                    menu.menuValue == 'Employees' ||
+                    menu.menuValue == 'Projects' ||
+                    menu.menuValue == 'Sales')
+                "
+                [class.active]="base === menu.base"
+                (click)="expandSubMenus(menu)"
+              >
+                <a
+                  href="javascript:void(0)"
+                  [ngClass]="{ subdrop: menu.showSubRoute == true }"
+                >
+                  <i [class]="'la la-' + menu.icon"></i>
+                  <span>{{ menu.menuValue }}</span>
+                  <span class="menu-arrow"></span>
+                </a>
+                <ul
+                  [ngClass]="
+                    menu.showSubRoute == true
+                      ? 'show-sub-menu'
+                      : 'hide-sub-menu'
+                  "
+                >
+                  <ng-container *ngFor="let subMenus of menu.subMenus">
+                    <li>
+                      <a
+                        [routerLink]="subMenus.route"
+                        [class.active]="page === subMenus.base || page === subMenus.base2 || page === subMenus.base3 || page === subMenus.base4 || page === subMenus.base5 || page === subMenus.base6 || page === subMenus.base7 || page === subMenus.base8"
+                        >{{ subMenus.menuValue }}</a
+                      >
+                    </li>
+                  </ng-container>
+                </ul>
+              </li>
+            </ng-container>
+          </ng-container>
+        </ul>
+        <button (click)="openMoreMenus()" class="viewmoremenu">
+          More Menu
+        </button>
+        <ul class="hidden-links" [class.hidden]="showMoreMenu === false">
+          <ng-container
+            *ngFor="
+              let mainTittle of side_bar_data;
+              let mainTittleIndex = index
+            "
+          >
+            <li class="menu-title">
+              <span>{{ mainTittle.tittle }}</span>
+            </li>
+            <ng-container *ngFor="let menu of mainTittle.menu">
+              <li
+                [class.active]="base === menu.base"
+                *ngIf="menu?.hasSubRoute == false"
+                [hidden]="
+                  menu.menuValue == 'Clients' ||
+                  menu.menuValue == 'Leads' ||
+                  menu.menuValue == 'Tickets'
+                "
+              >
+                <a [routerLink]="menu?.route"
+                  ><i [class]="'la la-' + menu.icon"></i>
+                  <span>{{ menu?.menuValue }}</span>
+                </a>
+              </li>
+              <li
+                class="submenu"
+                *ngIf="menu.hasSubRoute == true"
+                [hidden]="
+                  (menu.menuValue == 'Dashboard' ||
+                    menu.menuValue == 'Apps' ||
+                    menu.menuValue == 'Employees' ||
+                    menu.menuValue == 'Projects' ||
+                    menu.menuValue == 'Sales')
+                "
+                [class.active]="base === menu.base"
+                (click)="expandSubMenus(menu)"
+              >
+                <a
+                  href="javascript:void(0)"
+                  [ngClass]="{ subdrop: menu.showSubRoute == true }"
+                >
+                  <i [class]="'la la-' + menu.icon"></i>
+                  <span>{{ menu.menuValue }}</span>
+                  <span class="menu-arrow"></span>
+                </a>
+                <ul
+                  [ngClass]="
+                    menu.showSubRoute == true
+                      ? 'show-sub-menu'
+                      : 'hide-sub-menu'
+                  "
+                >
+                  <ng-container *ngFor="let subMenus of menu.subMenus">
+                    <li>
+                      <a
+                        [routerLink]="subMenus.route"
+                        [class.active]="page === subMenus.base || page === subMenus.base2 || page === subMenus.base3 || page === subMenus.base4 || page === subMenus.base5 || page === subMenus.base6 || page === subMenus.base7 || page === subMenus.base8"
+                        >{{ subMenus.menuValue }}</a
+                      >
+                    </li>
+                  </ng-container>
+                </ul>
+              </li>
+            </ng-container>
+          </ng-container>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- /Sidebar -->

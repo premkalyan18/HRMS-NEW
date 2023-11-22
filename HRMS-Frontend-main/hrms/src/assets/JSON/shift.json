@@ -1,0 +1,40 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name1": "Brenardo Galaviz",
+          "name2": "Web Developer"
+        },
+        {
+          "id": 2,
+          "name1": "Brenardo Galaviz",
+          "name2": "Web Developer"
+        },
+        {
+          "id": 3,
+          "name1": "John Doe",
+          "name2": "Web Designer"
+        },
+        {
+          "id": 4,
+          "name1": "John Smith",
+          "name2": "Android Developer"
+        },
+        {
+          "id": 5,
+          "name1": "Mike Litorus",
+          "name2": "IOS Developer"
+        },
+        {
+          "id": 6,
+          "name1": "Richard Miles",
+          "name2": "Web Developer"
+        },
+        {
+          "id": 7,
+          "name1": "Wilmer Deluna",
+          "name2": "Team Leader"
+        }
+      ],
+      "totalData":7
+}

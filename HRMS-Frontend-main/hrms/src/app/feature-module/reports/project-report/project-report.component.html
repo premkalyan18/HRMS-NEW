@@ -1,0 +1,258 @@
+                <!-- Page Content -->
+                <div class="content container-fluid">
+                    
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3 class="page-title">Project Reports</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Project Reports</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Page Header -->
+                 
+                    
+                    <!-- Content Starts -->
+                    
+                        <!-- Search Filter -->
+                    <div class="row filter-row">       
+                        <div class="col-sm-6 col-md-3">  
+                          <div class="form-group form-focus select-focus select">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Project Name</mat-label>
+                              <mat-select>
+                                <mat-option> -- Select -- </mat-option>
+                                <mat-option value="option1">Smart Hr</mat-option>
+                                <mat-option value="option2">Doccure</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                        </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">  
+                          <div class="form-group form-focus select-focus select">
+                            <mat-form-field appearance="fill">
+                              <mat-label>Status</mat-label>
+                              <mat-select>
+                                <mat-option> -- Select -- </mat-option>
+                                <mat-option value="option1">Active</mat-option>
+                                <mat-option value="option2">Pending</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                        </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">  
+                            <a href="#" class="btn btn-success w-100"> Search </a>  
+                        </div>     
+                    </div>
+                    <!-- /Search Filter -->
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table_header">
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length">
+                                      <label>
+                                        Show
+                                        <select
+                                          [(ngModel)]="pageSize"
+                                          (ngModelChange)="changePageSize()"
+                                          class="form-control form-control-sm"
+                                        >
+                                          <option value="10">10</option>
+                                          <option value="25">25</option>
+                                          <option value="50">50</option>
+                                          <option value="100">100</option>
+                                        </select>
+                                        Entries
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                        
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_filter">
+                                      <label>
+                                        Search:
+                                        <input
+                                          [(ngModel)]="searchDataValue"
+                                          (ngModelChange)="searchData(searchDataValue)"
+                                          class="form-control form-control-sm"
+                                        />
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div class="table-responsive">
+                                <table matSort
+                                (matSortChange)="sortData($event)"class="table table-striped custom-table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th mat-sort-header="id">#</th>
+                                            <th mat-sort-header="projecttittle">Project Title</th>
+                                            <th mat-sort-header="clientname">Client Name</th>
+                                            <th mat-sort-header="startdate">Start Date</th>
+                                            <th mat-sort-header="expiredate">End Date</th>
+                                            <th mat-sort-header="status">Status</th>
+                                            <th >Team</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of lstProjectreports">
+                                            <td>{{item.id}}</td>
+                                            <td>
+                                                <a [routerLink]="'/projects/project-view'">{{item.projecttitle}}</a>
+                                            </td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a [routerLink]="'/clients/client-profile'" class="avatar"><img src="assets/img/profiles/avatar-19.jpg" alt=""></a>
+                                                    <a [routerLink]="'/clients/client-profile'">{{item.clientname}}</a>
+                                                </h2>
+                                            </td>
+                                            <td>{{item.startdate}}</td>
+                                            <td>{{item.expiredate}}</td>
+                                            <td>
+                                                <div class="dropdown action-label">
+                                                    <a href="#" class="btn btn-white btn-sm btn-rounded"><i class="fa-regular fa-circle-dot text-success"></i> {{item.status}} </a>
+                                                    
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="team-members">
+                                                    <li>
+                                                        <a href="#" title="" data-bs-toggle="tooltip" data-original-title="John Doe"><img alt="" src="assets/img/profiles/avatar-2.jpg"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" title="" data-bs-toggle="tooltip" data-original-title="Richard Miles"><img alt="" src="assets/img/profiles/avatar-9.jpg"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" title="" data-bs-toggle="tooltip" data-original-title="John Smith"><img alt="" src="assets/img/profiles/avatar-10.jpg"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" title="" data-bs-toggle="tooltip" data-original-title="Mike Litorus"><img alt="" src="assets/img/profiles/avatar-5.jpg"></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="all-users">+15</a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr *ngIf="lstProjectreports.length === 0">
+                                          <td colspan="10">
+                                              <h5 style="text-align: center;">No data found</h5>
+                                          </td>
+                                      </tr>  
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table_footer">
+                                <div class="col-sm-12 col-md-5">
+                                  <div class="dataTables_info">
+                                    Showing {{ serialNumberArray[0] }} to
+                                    {{ serialNumberArray[serialNumberArray.length - 1] }} of
+                                    {{ totalData }} entries
+                                  </div>
+                                </div>
+                        
+                                <div class="col-sm-12 col-md-7">
+                                  <div class="pagination_section">
+                                    <ul class="pagination">
+                                      <li
+                                        class="page-item"
+                                        [ngClass]="{
+                                          disabled: currentPage == 1
+                                        }"
+                                      >
+                                        <a
+                                          (click)="getMoreData('previous')"
+                                          class="page-link"
+                                          href="javascript:void(0);"
+                                          tabindex="-1"
+                                          >Previous</a
+                                        >
+                                      </li>
+                        
+                                      <ng-container *ngFor="let item of pageNumberArray; let i = index">
+                                        <li
+                                          class="page-item"
+                                          [class.active]="item === currentPage"
+                                          [ngClass]="
+                                            (pageNumberArray[currentPage - 2] > item &&
+                                              item != 1 &&
+                                              pageNumberArray.length > 6) ||
+                                            (pageNumberArray[currentPage] < item &&
+                                              item != 1 &&
+                                              pageNumberArray.length > 6 &&
+                                              pageNumberArray.length != item)
+                                              ? 'hide-page-no'
+                                              : 'show-page-no'
+                                          "
+                                        >
+                                          <a
+                                            (click)="moveToPage(item)"
+                                            class="page-link"
+                                            href="javascript:void(0);"
+                                          >
+                                            {{ item }}
+                                          </a>
+                                        </li>
+                                        <li
+                                          class="page-item"
+                                          *ngIf="
+                                            i == 0 && pageNumberArray.length > 6 && currentPage > 2
+                                          "
+                                          [hidden]="currentPage == 1"
+                                          (click)="moveToPage(currentPage - 2)"
+                                        >
+                                          <a class="page-link" href="javascript:void(0);"> ... </a>
+                                        </li>
+                                        <li
+                                          *ngIf="
+                                            i == pageNumberArray.length - 2 &&
+                                            pageNumberArray.length > 6
+                                          "
+                                          [hidden]="
+                                            currentPage >=
+                                              pageNumberArray[pageNumberArray.length - 2] ||
+                                            totalData < serialNumberArray[serialNumberArray.length - 1]
+                                          "
+                                          class="page-item"
+                                          (click)="moveToPage(currentPage + 2)"
+                                        >
+                                          <a class="page-link" href="javascript:void(0);"> ... </a>
+                                        </li>
+                                      </ng-container>
+                        
+                                      <li
+                                        class="page-item"
+                                        [ngClass]="{
+                                          disabled:
+                                            currentPage ==
+                                              pageNumberArray[pageNumberArray.length - 1] ||
+                                            lstProjectreports.length == 0
+                                        }"
+                                      >
+                                        <a
+                                          (click)="getMoreData('next')"
+                                          class="page-link"
+                                          href="javascript:void(0);"
+                                          >Next
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                
+                    <!-- /Content End -->
+                    
+                </div>
+                <!-- /Page Content -->

@@ -1,0 +1,117 @@
+{
+    "data" : [
+        {
+          "name": "BarryCuda",
+          "designation": "Android Developer",
+          "email": "barrycuda@example.com",
+          "company": "Global Technologies",
+          "role": "Client",
+          "id": 1
+        },
+        {
+          "name": "John Doe ",
+          "designation": "Web Designer",
+          "email": "johndoe@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 2
+        },
+        {
+          "name": "Richard Miles",
+          "designation": "Admin",
+          "email": "richardmiles@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 3
+        },
+        {
+          "name": "John Smith",
+          "designation": "Android Developer",
+          "email": "johnsmith@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 4
+        },
+        {
+          "name": "Mike Litorus",
+          "designation": "IOS Developer",
+          "email": "mikelitorus@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 5
+        },
+        {
+          "name": "Wilmer Deluna",
+          "designation": "Team Leader",
+          "email": "wilmerdeluna@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 6
+        },
+        {
+          "name": "BarryCuda",
+          "designation": "Team Leader",
+          "email": "barrycuda@example.com",
+          "company": "Global Technologies",
+          "role": "Client",
+          "id": 7
+        },
+        {
+          "name": "BarryCuda",
+          "designation": "Android Developer",
+          "email": "barrycuda@example.com",
+          "company": "Global Technologies",
+          "role": "Client",
+          "id": 8
+        },
+        {
+          "name": "John Doe",
+          "designation": "Web Designer",
+          "email": "johndoe@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 9
+        },
+        {
+          "name": "Richard Miles",
+          "designation": "Admin",
+          "email": "richardmiles@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 10
+        },
+        {
+          "name": "John Smith",
+          "designation": "Android Developer",
+          "email": "johnsmith@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 11
+        },
+        {
+          "name": "Mike Litorus",
+          "designation": "IOS Developer",
+          "email": "mikelitorus@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 12
+        },
+        {
+          "name": "Wilmer Deluna",
+          "designation": "Team Leader",
+          "email": "wilmerdeluna@example.com",
+          "company": "Dreamguys Technologies",
+          "role": "Employee",
+          "id": 14
+        },
+        {
+          "name": "BarryCuda",
+          "designation": "Team Leader",
+          "email": "barrycuda@example.com",
+          "company": "Global Technologies",
+          "role": "Client",
+          "id": 15
+        }
+      ],
+      "totalData":15
+}

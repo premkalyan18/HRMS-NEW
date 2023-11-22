@@ -1,0 +1,176 @@
+
+<div class="account-page">
+  <!-- Main Wrapper -->
+  <div class="main-wrapper">
+      <div class="account-content">
+        <div class="container">
+          <!-- Account Logo -->
+          <div class="account-logo">
+            <a routerLink="/layout/dashboard/admin"
+              ><img src="assets/img/logo5.png" style="width:500px" alt="Dreamguy's Technologies"
+            /></a>
+          </div>
+          <!-- /Account Logo -->
+    
+          <div class="account-box">
+            <div class="account-wrapper">
+              <h3 class="account-title">Register</h3>
+              <p class="account-subtitle">Access to our dashboard</p>
+    
+              <!-- Account Form -->
+              <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="form-group">
+                  <label>Email<span class="mandatory">*</span></label>
+                  <input class="form-control" type="text" formControlName="email" id="email"/>
+                  <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger">
+                      <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                  </div>
+                  <div *ngIf="CustomControler !=0" class="text-danger">
+                      {{CustomControler}}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Password<span class="mandatory">*</span></label>
+                  <input class="form-control" type="password" formControlName="password" id="password"/>
+                  <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
+                      <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Repeat Password<span class="mandatory">*</span></label>
+                  <input class="form-control" type="password" formControlName="confirmPassword" id="confirmPassword"/>
+                  <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].invalid" class="text-danger">
+                      <div *ngIf="f['confirmPassword'].errors && f['confirmPassword'].errors['required']">
+                          Confirm Password is required.
+                      </div>
+                  </div>
+                  <div *ngIf=isvalidconfirmpassword class="text-danger">
+                      Password not matching
+                  </div>
+                </div>
+                <div class="form-group text-center">
+                  <button class="btn btn-primary account-btn" type="submit" [disabled]="form.invalid">Register</button>
+                </div>
+                <div class="account-footer">
+                  <p>Already have an account? <a routerLink="/login">Login</a></p>
+                </div>
+              </form> -->
+              <!-- /Account Form -->
+  
+  
+  
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="row">
+                  <!-- Left Column -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Firstname<span class="mandatory">*</span></label>
+                      <input class="form-control" type="text" formControlName="first_name" id="first_name"/>
+                      <div *ngIf="f['first_name'].touched && f['first_name'].invalid" class="text-danger">
+                        <div *ngIf="f['first_name'].errors && f['first_name'].errors['required']">Firstname is required.</div>
+                      </div>
+                    </div>
+              
+                    <div class="form-group">
+                      <label>Username<span class="mandatory">*</span></label>
+                      <input class="form-control" type="text" formControlName="username" id="username"/>
+                      <div *ngIf="f['username'].touched && f['username'].invalid" class="text-danger">
+                        <div *ngIf="f['username'].errors && f['username'].errors['required']">Username is required.</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>PhoneNumber<span class="mandatory">*</span></label>
+                      <input class="form-control" type="text" formControlName="phone" id="phone"/>
+                      <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-danger">
+                        <div *ngIf="f['phone'].errors && f['phone'].errors['required']">Phone number is required.</div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label>Password<span class="mandatory">*</span></label>
+                      <input class="form-control" type="password" formControlName="password" id="password"/>
+                      <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
+                        <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+                      </div>
+                    </div>
+                   
+                    
+                  </div>
+              
+                  <!-- Right Column -->
+                  <div class="col-md-6">
+                    
+                    <div class="form-group">
+                      <label>Lastname<span class="mandatory">*</span></label>
+                      <input class="form-control" type="text" formControlName="last_name" id="last_name"/>
+                      <div *ngIf="f['last_name'].touched && f['last_name'].invalid" class="text-danger">
+                        <div *ngIf="f['last_name'].errors && f['last_name'].errors['required']">Lastname is required.</div>
+                      </div>
+                    </div>
+              
+                    <!-- <div class="form-group">
+                      <label>Department<span class="mandatory">*</span></label>
+                      <select class="form-select form-control" id="department" formControlName="department">
+                        <option disabled>Select Department</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="IT Management">IT Management</option>
+                        <option value="Marketing">Marketing</option>
+                      </select>
+                      <div *ngIf="f['department'].touched && f['department'].invalid" class="text-danger">
+                        <div *ngIf="f['department'].errors && f['department'].errors['required']">Department is required.</div>
+                      </div>
+                    </div> -->
+                    <div class="form-group">
+                      <label>Email<span class="mandatory">*</span></label>
+                      <input class="form-control" type="text" formControlName="email" id="email"/>
+                      <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger">
+                        <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                      </div>
+                    </div>
+              
+                    <div class="form-group">
+                      <label>Designation<span class="mandatory">*</span></label>
+                      <select class="form-select form-control" id="designation" formControlName="designation">
+                        <option disabled>Select Designation</option>
+                        <option value="des1">des1</option>
+                        <option value="des2">des2</option>
+                        <option value="des3">des3</option>
+                      </select>
+                      <div *ngIf="f['designation'].touched && f['designation'].invalid" class="text-danger">
+                        <div *ngIf="f['designation'].errors && f['designation'].errors['required']">Designation is required.</div>
+                      </div>
+                    </div>
+                    
+                    
+                  
+                    
+                  </div>
+                </div>
+              
+                <!-- Additional form controls can be placed here as needed -->
+              
+                <div class="text-center" *ngIf="loading">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
+              
+                <div class="form-group text-center">
+                  <button class="btn btn-primary account-btn" type="submit" [disabled]="form.invalid">Register</button>
+                </div>
+              
+                <div class="account-footer">
+                  <p>Already have an account? <a routerLink="/login">Login</a></p>
+                </div>
+              </form>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Main Wrapper -->
+  </div>
+    

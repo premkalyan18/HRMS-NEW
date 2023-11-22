@@ -1,0 +1,21 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "projecttitle": "Hospital Administration",
+          "clientname": "Global Technologies",
+          "startdate": "9 Jan 2021",
+          "expiredate": "10 Apr 2021",
+          "status": "Active"
+        },
+        {
+          "id": 2,
+          "projecttitle": "Office Management",
+          "clientname": "Delta Infotech",
+          "startdate": "10 Dec 2021",
+          "expiredate": "2 May 2021",
+          "status": "Pending"
+        }
+      ],
+      "totalData":2
+}

@@ -1,0 +1,179 @@
+<!-- Page Content -->
+<div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="page-title">Job Applicants</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Job Applicants</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table_header">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dataTables_length">
+                            <label>
+                                Show
+                                <select [(ngModel)]="pageSize" (ngModelChange)="changePageSize()"
+                                    class="form-control form-control-sm">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                Entries
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dataTables_filter">
+                            <label>
+                                Search:
+                                <input [(ngModel)]="searchDataValue" (ngModelChange)="searchData(searchDataValue)"
+                                    class="form-control form-control-sm" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table matSort (matSortChange)="sortData($event)"
+                    class="table table-striped custom-table mb-0 datatable">
+                    <thead>
+                        <tr>
+                            <th mat-sort-header="id">#</th>
+                            <th mat-sort-header="name">Name</th>
+                            <th mat-sort-header="email">Email</th>
+                            <th mat-sort-header="phone">Phone</th>
+                            <th mat-sort-header="applyDate">Apply Date</th>
+                            <th class="text-center">Status</th>
+                            <th>Resume</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let appliedCandidates of allAppliedCandidate;let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{appliedCandidates.name}}</td>
+                            <td>{{appliedCandidates.email}}</td>
+                            <td>{{appliedCandidates.phone}}</td>
+                            <td>{{appliedCandidates.applyDate}}</td>
+                            <td class="text-center">
+                                <div class="dropdown action-label">
+                                    <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-regular fa-circle-dot text-info"></i> New
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item"><i class="fa-regular fa-circle-dot text-info me-1"></i>
+                                            New</a>
+                                        <a class="dropdown-item"><i class="fa-regular fa-circle-dot text-success me-1"></i> Hired</a>
+                                        <a class="dropdown-item"><i class="fa-regular fa-circle-dot text-danger me-1"></i>
+                                            Rejected</a>
+                                        <a class="dropdown-item"><i class="fa-regular fa-circle-dot text-danger me-1"></i>
+                                            Interviewed</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><a class="btn btn-sm btn-primary"><i class="fa-solid fa-download"></i> Download</a>
+                            </td>
+                            <td class="text-end">
+                                <div class="dropdown dropdown-action">
+                                    <a class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
+                                        aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item"><i class="fa-regular fa-clock m-r-5"></i> Schedule
+                                            Interview</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="allAppliedCandidate.length === 0">
+                            <td colspan="10">
+                              <h5 style="text-align: center;">No data found</h5>
+                            </td>
+                          </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table_footer">
+                <div class="col-sm-12 col-md-5">
+                    <div class="dataTables_info">
+                        Showing {{ serialNumberArray[0] }} to
+                        {{ serialNumberArray[serialNumberArray.length - 1] }} of
+                        {{ totalData }} entries
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-7">
+                    <div class="pagination_section">
+                        <ul class="pagination">
+                            <li class="page-item" [ngClass]="{
+                          disabled: currentPage == 1
+                        }">
+                                <a (click)="getMoreData('previous')" class="page-link" href="javascript:void(0);"
+                                    tabindex="-1">Previous</a>
+                            </li>
+
+                            <ng-container *ngFor="let item of pageNumberArray; let i = index">
+                                <li class="page-item" [class.active]="item === currentPage" [ngClass]="
+                            (pageNumberArray[currentPage - 2] > item &&
+                              item != 1 &&
+                              pageNumberArray.length > 6) ||
+                            (pageNumberArray[currentPage] < item &&
+                              item != 1 &&
+                              pageNumberArray.length > 6 &&
+                              pageNumberArray.length != item)
+                              ? 'hide-page-no'
+                              : 'show-page-no'
+                          ">
+                                    <a (click)="moveToPage(item)" class="page-link" href="javascript:void(0);">
+                                        {{ item }}
+                                    </a>
+                                </li>
+                                <li class="page-item" *ngIf="
+                            i == 0 && pageNumberArray.length > 6 && currentPage > 2
+                          " [hidden]="currentPage == 1" (click)="moveToPage(currentPage - 2)">
+                                    <a class="page-link" href="javascript:void(0);"> ... </a>
+                                </li>
+                                <li *ngIf="
+                            i == pageNumberArray.length - 2 &&
+                            pageNumberArray.length > 6
+                          " [hidden]="
+                            currentPage >=
+                              pageNumberArray[pageNumberArray.length - 2] ||
+                            totalData < serialNumberArray[serialNumberArray.length - 1]
+                          " class="page-item" (click)="moveToPage(currentPage + 2)">
+                                    <a class="page-link" href="javascript:void(0);"> ... </a>
+                                </li>
+                            </ng-container>
+
+                            <li class="page-item" [ngClass]="{
+                          disabled:
+                            currentPage ==
+                              pageNumberArray[pageNumberArray.length - 1] ||
+                            allAppliedCandidate.length == 0
+                        }">
+                                <a (click)="getMoreData('next')" class="page-link" href="javascript:void(0);">Next
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->

@@ -1,0 +1,59 @@
+{
+    "data" : [
+        {
+          "item": "Dell Laptop",
+          "purchaseFrom": "Amazon",
+          "purchaseDate": "12-01-2019",
+          "purchasedBy": "Loren Gatlin",
+          "amount": "$ 1210",
+          "paidBy": "Cash",
+          "id": 1
+        },
+        {
+          "item": "Mac System",
+          "purchaseFrom": "Amazon",
+          "purchaseDate": "10-01-2019",
+          "purchasedBy": "Tarah Shropshire",
+          "amount": "$ 1215",
+          "paidBy": "Cheque",
+          "id": 2
+        },
+        {
+          "item": "Dell Laptop",
+          "purchaseFrom": "Snap",
+          "purchaseDate": "24-01-2019",
+          "purchasedBy": "kenneth",
+          "amount": "$ 1205",
+          "paidBy": "Cash",
+          "id": 3
+        },
+        {
+          "item": "Adobe System",
+          "purchaseFrom": "Orion",
+          "purchaseDate": "11-01-2019",
+          "purchasedBy": "John Doe",
+          "amount": "$ 134",
+          "paidBy": "Cheque",
+          "id": 4
+        },
+        {
+          "item": "Adobe System",
+          "purchaseFrom": "Amazon",
+          "purchaseDate": "08-01-2019",
+          "purchasedBy": "John Michellin",
+          "amount": "$ 12",
+          "paidBy": "Cheque",
+          "id": 5
+        },
+        {
+          "item": "Adobe System",
+          "purchaseFrom": "Flip",
+          "purchaseDate": "10-01-2019",
+          "purchasedBy": "Arnold",
+          "amount": "$ 121",
+          "paidBy": "Cheque",
+          "id": 6
+        }
+      ],
+      "totalData":6
+}

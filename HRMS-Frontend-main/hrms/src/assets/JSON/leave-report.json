@@ -1,0 +1,70 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name1": "John Doe",
+          "name2": "#0001",
+          "date": "20 Dec 2020",
+          "department": "Design",
+          "leavetype": "Sick Leave",
+          "noofdays": "05",
+          "remainingleave": "08",
+          "totalleaves": "20",
+          "totalleavetaken": "12",
+          "leavecarryforward": "08"
+        },
+        {
+          "id": 2,
+          "name1": "Richard Miles",
+          "name2": "#0002",
+          "date": "21 Dec 2020",
+          "department": "Web Developer",
+          "leavetype": "Parenting Leave",
+          "noofdays": "03",
+          "remainingleave": "08",
+          "totalleaves": "20",
+          "totalleavetaken": "12",
+          "leavecarryforward": "05"
+        },
+        {
+          "id": 3,
+          "name1": "John Smith",
+          "name2": "#0003",
+          "date": "22 Dec 2020",
+          "department": "Android Developer",
+          "leavetype": "Emergency Leave",
+          "noofdays": "01",
+          "remainingleave": "09",
+          "totalleaves": "20",
+          "totalleavetaken": "17",
+          "leavecarryforward": "03"
+        },
+        {
+          "id": 4,
+          "name1": "Mike Litorus",
+          "name2": "#0004",
+          "date": "23 Dec 2020",
+          "department": "IOS Developer",
+          "leavetype": "Sick Leave",
+          "noofdays": "15",
+          "remainingleave": "05",
+          "totalleaves": "20",
+          "totalleavetaken": "15",
+          "leavecarryforward": "05"
+        },
+        {
+          "id": 5,
+          "name1": "John Doe",
+          "name2": "#0001",
+          "date": "24 Dec 2020",
+          "department": "Team Leader",
+          "leavetype": "Sick Leave",
+          "noofdays": "10",
+          "remainingleave": "07",
+          "totalleaves": "20",
+          "totalleavetaken": "18",
+          "leavecarryforward": "2"
+        }
+      ],
+      "totalData":5
+}

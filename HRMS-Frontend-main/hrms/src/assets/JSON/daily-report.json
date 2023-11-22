@@ -1,0 +1,46 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name1": "John Doe",
+          "name2": "#0001",
+          "date": "20 Dec 2020",
+          "department": "Design",
+          "status": "Week off"
+        },
+        {
+          "id": 2,
+          "name1": "John Smith",
+          "name2": "#0003",
+          "date": "20 Dec 2020",
+          "department": "Android Developer",
+          "status": "Week off"
+        },
+        {
+          "id": 3,
+          "name1": "Mike Litorus",
+          "name2": "#0004",
+          "date": "20 Dec 2020",
+          "department": "IOS Developer",
+          "status": "Week off"
+        },
+        {
+          "id": 4,
+          "name1": "Richard Miles",
+          "name2": "#0002",
+          "date": "20 Dec 2020",
+          "department": "Web Developer",
+          "status": "Absent"
+        },
+        {
+          "id": 5,
+          "name1": "Wilmer Deluna",
+          "name2": "#0005",
+          "date": "20 Dec 2020",
+          "department": "Team Leader",
+          "status": "Week off"
+        }
+      ],
+      "totalData":5
+    
+}

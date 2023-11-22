@@ -1,0 +1,44 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "name1": "John Doe",
+          "name2": "Web Designer",
+          "jobtitle": "Web Developer",
+          "department": "Development",
+          "categorywise": "html -",
+          "categorywisemark": "1",
+          "categorywise1": "Level1 -",
+          "categorywisemark1": "0",
+          "totalmark": "1",
+          "status": "Action pending"
+        },
+        {
+          "id": 2,
+          "name1": "Richard Miles",
+          "name2": "Web Developer",
+          "jobtitle": "Web Designer",
+          "department": "Designing",
+          "categorywise": "html -",
+          "categorywisemark": "1",
+          "categorywise1": "Level1 -",
+          "categorywisemark1": "0",
+          "totalmark": "1",
+          "status": "Action pending"
+        },
+        {
+          "id": 3,
+          "name1": "John Smith",
+          "name2": "Android Developer",
+          "jobtitle": "Android Developer",
+          "department": "Android",
+          "categorywise": "html -",
+          "categorywisemark": "1",
+          "categorywise1": "Level1 -",
+          "categorywisemark1": "0",
+          "totalmark": "1",
+          "status": "Action pending"
+        }
+      ],
+      "totalData":3
+}

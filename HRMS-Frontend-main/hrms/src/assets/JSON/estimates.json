@@ -1,0 +1,135 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "number": "EST-0001",
+          "client": "Barry Cuda",
+          "project": "Office Management",
+          "email": "barrycuda@texas.com",
+          "tax": "GST",
+          "client_address": "Texas",
+          "billing_address": "Washington",
+          "estimate_date": "11-03-2019",
+          "expiry_date": "20-05-2019",
+          "items": [
+            {
+              "item": "Item",
+              "description": "Description",
+              "unit_cost": "10",
+              "qty": 10,
+              "amount": 100
+            }
+          ],
+          "totalamount": 100,
+          "discount": 5,
+          "grandTotal": 100,
+          "other_information": "Description",
+          "status": "Accepted"
+        },
+        {
+          "id": 2,
+          "number": "EST-0002",
+          "client": "Barry Cuda",
+          "project": "Office Management",
+          "email": "barrycuda@texas.com",
+          "tax": "GST",
+          "client_address": "Texas",
+          "billing_address": "Washington",
+          "estimate_date": "11-03-2019",
+          "expiry_date": "20-05-2019",
+          "items": [
+            {
+                "item": "Item",
+                "description": "Description",
+                "unit_cost": "10",
+                "qty": 10,
+                "amount": 100
+            }
+          ],
+          "totalamount": 100,
+          "discount": 5,
+          "grandTotal": 100,
+          "other_information": "Description",
+          "status": "Accepted"
+        },
+        {
+          "id": 3,
+          "number": "EST-0003",
+          "client": "Joshy",
+          "project": "Office Management",
+          "email": "barrycuda@texas.com",
+          "tax": "GST",
+          "client_address": "Texas",
+          "billing_address": "Florida",
+          "estimate_date": "11-04-2019",
+          "expiry_date": "13-05-2019",
+          "items": [
+            {
+                "item": "Item",
+                "description": "Description",
+                "unit_cost": "10",
+                "qty": 10,
+                "amount": 100
+            }
+          ],
+          "totalamount": 100,
+          "discount": 5,
+          "grandTotal": 100,
+          "other_information": "Description",
+          "status": "Accepted"
+        },
+        {
+          "id": 4,
+          "number": "EST-0004",
+          "client": "Denver",
+          "project": "Office Management",
+          "email": "barrycuda@texas.com",
+          "tax": "VAT",
+          "client_address": "Texas",
+          "billing_address": "Washington",
+          "estimate_date": "11-04-2019",
+          "expiry_date": "13-05-2019",
+          "items": [
+            {
+              "item": "Item",
+              "description": "Description",
+              "unit_cost": "10",
+              "qty": 10,
+              "amount": 100
+            }
+          ],
+          "totalamount": 100,
+          "discount": 5,
+          "grandTotal": 100,
+          "other_information": "Description",
+          "status": "Accepted"
+        },
+        {
+          "id": 5,
+          "number": "EST-0006",
+          "client": "Kenneth",
+          "project": "Office Management",
+          "email": "barrycuda@texas.com",
+          "tax": "GST",
+          "client_address": "Texas",
+          "billing_address": "Washington",
+          "estimate_date": "10-04-2019",
+          "expiry_date": "20-10-2019",
+          "items": [
+            {
+              "item": "Item",
+              "description": "Description",
+              "unit_cost": "10",
+              "qty": 10,
+              "amount": 100
+            }
+          ],
+          "totalamount": 100,
+          "discount": 5,
+          "grandTotal": 100,
+          "other_information": "Description",
+          "status": "Decline"
+        }
+      ],
+      "totalData":5
+}

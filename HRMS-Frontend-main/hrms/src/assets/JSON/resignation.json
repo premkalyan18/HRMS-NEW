@@ -1,0 +1,37 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "employee": "John Doe",
+          "department": "Web development",
+          "reason": "tested",
+          "noticedDate": "28-02-2019",
+          "resignDate": "28-03-2019"
+        },
+        {
+          "id": 2,
+          "employee": "Russia smith",
+          "department": "Web development",
+          "reason": "tested",
+          "noticedDate": "28-02-2019",
+          "resignDate": "28-03-2019"
+        },
+        {
+          "id": 3,
+          "employee": "Richared deo",
+          "department": "Web development",
+          "reason": "tested",
+          "noticedDate": "28-02-2019",
+          "resignDate": "28-03-2019"
+        },
+        {
+          "id": 4,
+          "employee": "Mark hentry",
+          "department": "Web development",
+          "reason": "tested",
+          "noticedDate": "28-02-2019",
+          "resignDate": "28-03-2019"
+        }
+      ],
+      "totalData":4
+}

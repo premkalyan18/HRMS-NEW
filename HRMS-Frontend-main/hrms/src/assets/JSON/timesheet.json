@@ -1,0 +1,72 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "employee": "Bernardo Galaviz",
+          "designation": "Web developer",
+          "date": "8 Mar 2019",
+          "deadline": "",
+          "project": "Video Calling App",
+          "assignedhours": "20",
+          "hrs": "12",
+          "description":
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit neque"
+        },
+        {
+          "id": 2,
+          "employee": " Catherine Manseau",
+          "designation": "Android developer",
+          "date": "9 Mar 2019",
+          "deadline": "",
+          "totalhrs": "",
+          "remainHrs": "",
+          "project": "Video Calling App",
+          "assignedhours": "20",
+          "hrs": "12",
+          "description":
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit neque"
+        },
+        {
+          "id": 3,
+          "employee": "Jeffry lalor Galaviz",
+          "designation": "Android developer",
+          "date": "10 Mar 2019",
+          "deadline": "",
+          "totalhrs": "",
+          "project": "Video Calling App",
+          "assignedhours": "20",
+          "hrs": "12",
+          "description":
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit neque"
+        },
+        {
+          "id": 4,
+          "employee": "Jeffry Warden",
+          "designation": "Web developer",
+          "date": "11 Mar 2019",
+          "deadline": "",
+          "totalhrs": "",
+          "remainHrs": "",
+          "project": "Video Calling App",
+          "assignedhours": "20",
+          "hrs": "12",
+          "description":
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit neque"
+        },
+        {
+          "id": 5,
+          "employee": "John doe Galaviz",
+          "designation": "Web developer",
+          "date": "13 Mar 2019",
+          "deadline": "",
+          "totalhrs": "",
+          "remainHrs": "",
+          "project": "Video Calling App",
+          "assignedhours": "20",
+          "hrs": "12",
+          "description":
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel elit neque"
+        }
+      ],
+      "totalData":5
+}

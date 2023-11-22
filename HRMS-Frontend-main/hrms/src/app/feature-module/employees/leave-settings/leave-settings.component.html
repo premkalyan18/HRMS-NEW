@@ -1,0 +1,645 @@
+<!-- Page Content -->
+<div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="page-title">Leave Settings</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a [routerLink]="'/dashboard/admin'">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Leave Settings</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Annual Leave -->
+            <div class="card leave-box" id="leave_annual">
+                <div class="card-body">
+                    <div class="h3 card-title with-switch">
+                        Annual
+                        <div class="onoffswitch" *ngIf="!buttonDisabled" (click)="buttonDisabled = true">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_annual" checked>
+                            <label class="onoffswitch-label" for="switch_annual">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <div class="onoffswitch" *ngIf="buttonDisabled" (click)="buttonDisabled = false">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_sick"
+                                >
+                            <label class="onoffswitch-label" for="switch_sick">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="leave-item">
+
+                        <!-- Annual Days Leave -->
+                        <div class="leave-row" >
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <div class="form-group">
+                                        <label>Days</label>
+                                        <input type="text" class="form-control"  [disabled]="buttonDisabled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onclick()"  [disabled]="buttonDisabled">
+                                    {{Edit?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="visible">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- /Annual Days Leave -->
+
+                        <!-- Carry Forward -->
+                        <div class="leave-row">
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <label class="d-block">Carry forward</label>
+                                    <div class="leave-inline-form">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="carry_no" value="option1" [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="carry_no">No</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="carry_yes" value="option2"  [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="carry_yes">Yes</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Max</span>
+                                            <input type="text" class="form-control" [disabled]="buttonDisabled">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onclicks()"  [disabled]="buttonDisabled">
+                                    {{Edits?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="visibles">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- /Carry Forward -->
+
+                        <!-- Earned Leave -->
+                        <div class="leave-row">
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <label class="d-block">Earned leave</label>
+                                    <div class="leave-inline-form">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="earned_no" value="option1" [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="earned_no">No</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="earned_yes" value="option2" [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="earned_yes">Yes</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onClick()"  [disabled]="buttonDisabled">
+                                    {{edits?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="Visible">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- /Earned Leave -->
+
+                    </div>
+
+                    <!-- Custom Policy -->
+                    <div class="custom-policy">
+                        <div class="leave-header">
+                            <div class="title">Custom policy</div>
+                            <div class="leave-action">
+                                <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#add_custom_policy" [disabled]="buttonDisabled"><i class="fa-solid fa-plus"></i>
+                                    Add custom
+                                    policy</button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-nowrap leave-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="l-name">Name</th>
+                                        <th class="l-days">Days</th>
+                                        <th class="l-assignee">Assignee</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let custom of allCustomPolicy;let i = index">
+                                        <td>{{custom.name}} </td>
+                                        <td>{{custom.days}}</td>
+                                        <td>
+                                            <a [routerLink]="'/employees/employee-profile'" class="avatar"><img alt=""
+                                                    src="assets/img/profiles/avatar-2.jpg"></a>
+                                            <a [routerLink]="'/employees/employee-profile'">John Doe</a>
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="dropdown dropdown-action">
+                                                <a aria-expanded="false" data-bs-toggle="dropdown"
+                                                    class="action-icon dropdown-toggle"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_custom_policy"><i
+                                                            class="fa-solid fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#delete_custom_policy"><i
+                                                            class="fa-regular fa-trash-can m-r-5"></i>
+                                                        Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /Custom Policy -->
+
+                </div>
+            </div>
+            <!-- /Annual Leave -->
+
+            <!-- Sick Leave -->
+            <div class="card leave-box" id="leave_sick">
+                <div class="card-body">
+                    <div class="h3 card-title with-switch">
+                        Sick
+                        <div class="onoffswitch" *ngIf="!buttondisabled" (click)="buttondisabled = true">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_annual" checked>
+                            <label class="onoffswitch-label" for="switch_annual">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <div class="onoffswitch" *ngIf="buttondisabled" (click)="buttondisabled = false">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_sick"
+                                >
+                            <label class="onoffswitch-label" for="switch_sick">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="leave-item">
+                        <div class="leave-row">
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <div class="form-group">
+                                        <label>Days</label>
+                                        <input type="text" class="form-control"[disabled]="buttondisabled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onClicks()"  [disabled]="buttondisabled">
+                                    {{edits?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="readless">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Sick Leave -->
+
+            <!-- Hospitalisation Leave -->
+            <div class="card leave-box" id="leave_hospitalisation">
+                <div class="card-body">
+                    <div class="h3 card-title with-switch">
+                        Hospitalisation
+                        <div class="onoffswitch" *ngIf="!buttonDisabled" (click)="buttonDisabled = true">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_annual" checked>
+                            <label class="onoffswitch-label" for="switch_annual">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <div class="onoffswitch" *ngIf="buttonDisabled" (click)="buttonDisabled = false">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_sick"
+                                >
+                            <label class="onoffswitch-label" for="switch_sick">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="leave-item">
+
+                        <!-- Annual Days Leave -->
+                        <div class="leave-row">
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <div class="form-group">
+                                        <label>Days</label>
+                                        <input type="text" class="form-control" [disabled]="buttonDisabled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onclicks()"  [disabled]="buttonDisabled">
+                                    {{Edits?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="visibles">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- /Annual Days Leave -->
+
+                    </div>
+
+                    <!-- Custom Policy -->
+                    <div class="custom-policy">
+                        <div class="leave-header">
+                            <div class="title">Custom policy</div>
+                            <div class="leave-action">
+                                <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#add_custom_policy" [disabled]="buttonDisabled"><i class="fa-solid fa-plus"></i> Add custom
+                                    policy</button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-nowrap leave-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="l-name">Name</th>
+                                        <th class="l-days">Days</th>
+                                        <th class="l-assignee">Assignee</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let custom of allCustomPolicy;let i = index">
+                                        <td>{{custom.name}} </td>
+                                        <td>{{custom.days}}</td>
+                                        <td>
+                                            <a class="avatar"><img alt="" src="assets/img/profiles/avatar-2.jpg"></a>
+                                            <a>John Doe</a>
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="dropdown dropdown-action">
+                                                <a aria-expanded="false" data-bs-toggle="dropdown"
+                                                    class="action-icon dropdown-toggle"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_custom_policy"><i
+                                                            class="fa-solid fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#delete_custom_policy"><i
+                                                            class="fa-regular fa-trash-can m-r-5"></i>
+                                                        Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /Custom Policy -->
+
+                </div>
+            </div>
+            <!-- /Hospitalisation Leave -->
+
+            <!-- Custom Create Leave -->
+            <div class="card leave-box mb-0" id="leave_custom01">
+                <div class="card-body">
+                    <div class="h3 card-title with-switch">
+                        LOP
+                        <div class="onoffswitch" *ngIf="!buttonDisabled" (click)="buttonDisabled = true">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_annual" checked>
+                            <label class="onoffswitch-label" for="switch_annual">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <div class="onoffswitch" *ngIf="buttonDisabled" (click)="buttonDisabled = false">
+                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch_sick"
+                                >
+                            <label class="onoffswitch-label" for="switch_sick">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="leave-item">
+
+                        <!-- Annual Days Leave -->
+                        <div class="leave-row" >
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <div class="form-group">
+                                        <label>Days</label>
+                                        <input type="text" class="form-control"  [disabled]="buttonDisabled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onclick()"  [disabled]="buttonDisabled">
+                                    {{Edit?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="visible">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- /Annual Days Leave -->
+
+                        <!-- Carry Forward -->
+                        <div class="leave-row">
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <label class="d-block">Carry forward</label>
+                                    <div class="leave-inline-form">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="carry_no" value="option1" [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="carry_no">No</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="carry_yes" value="option2"  [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="carry_yes">Yes</label>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text">Max</span>
+                                            <input type="text" class="form-control" [disabled]="buttonDisabled">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onclicks()"  [disabled]="buttonDisabled">
+                                    {{Edits?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="visibles">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- /Carry Forward -->
+
+                        <!-- Earned Leave -->
+                        <div class="leave-row">
+                            <div class="leave-left">
+                                <div class="input-box">
+                                    <label class="d-block">Earned leave</label>
+                                    <div class="leave-inline-form">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="earned_no" value="option1" [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="earned_no">No</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="earned_yes" value="option2" [disabled]="buttonDisabled">
+                                            <label class="form-check-label" for="earned_yes">Yes</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="leave-right">
+                                <button class="leave-edit-btn btn-succes btn" (click)="onClick()"  [disabled]="buttonDisabled">
+                                    {{edits?"Edit":"Cancel"}}
+                                </button>
+                                <ng-container *ngIf="Visible">
+                                    <button class="btn btn-primary leave-save-btn" type="submit">Save</button>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <!-- /Earned Leave -->
+
+                    </div>
+
+                    <!-- Custom Policy -->
+                    <div class="custom-policy">
+                        <div class="leave-header">
+                            <div class="title">Custom policy</div>
+                            <div class="leave-action">
+                                <button class="btn btn-sm btn-primary" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#add_custom_policy" [disabled]="buttonDisabled"><i class="fa-solid fa-plus"></i>
+                                    Add custom
+                                    policy</button>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-nowrap leave-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="l-name">Name</th>
+                                        <th class="l-days">Days</th>
+                                        <th class="l-assignee">Assignee</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let custom of allCustomPolicy;let i = index">
+                                        <td>{{custom.name}} </td>
+                                        <td>{{custom.days}}</td>
+                                        <td>
+                                            <a class="avatar"><img alt="" src="assets/img/profiles/avatar-2.jpg"></a>
+                                            <a>John Doe</a>
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="dropdown dropdown-action">
+                                                <a aria-expanded="false" data-bs-toggle="dropdown"
+                                                    class="action-icon dropdown-toggle"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_custom_policy"><i
+                                                            class="fa-solid fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal"
+                                                        data-bs-target="#delete_custom_policy"><i
+                                                            class="fa-regular fa-trash-can m-r-5"></i>
+                                                        Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /Custom Policy -->
+
+
+                </div>
+            </div>
+
+        </div>
+        <!-- Add Custom Policy Modal -->
+        <div id="add_custom_policy" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Custom Policy</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Policy Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Days <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group leave-duallist">
+                                <label>Add employee</label>
+                                <div class="row">
+                                    <div class="col-lg-5 col-sm-5">
+                                        <select name="customleave_from" id="customleave_select"
+                                            class="form-control form-select" size="5" multiple="multiple">
+                                            <option value="1">Bernardo Galaviz </option>
+                                            <option value="2">Jeffrey Warden</option>
+                                            <option value="2">John Doe</option>
+                                            <option value="2">John Smith</option>
+                                            <option value="3">Mike Litorus</option>
+                                        </select>
+                                    </div>
+                                    <div class="multiselect-controls col-lg-2 col-sm-2 d-grid gap-2">
+                                        <button type="button" id="customleave_select_rightAll"
+                                            class="btn w-100 btn-white"><i class="fa fa-forward"></i></button>
+                                        <button type="button" id="customleave_select_rightSelected"
+                                            class="btn w-100 btn-white"><i class="fa fa-chevron-right"></i></button>
+                                        <button type="button" id="customleave_select_leftSelected"
+                                            class="btn w-100 btn-white"><i class="fa fa-chevron-left"></i></button>
+                                        <button type="button" id="customleave_select_leftAll"
+                                            class="btn w-100 btn-white"><i class="fa fa-backward"></i></button>
+                                    </div>
+                                    <div class="col-lg-5 col-sm-5">
+                                        <select name="customleave_to" id="customleave_select_to"
+                                            class="form-control form-select" size="8" multiple="multiple"></select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="submit-section">
+                                <button class="btn btn-primary submit-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Add Custom Policy Modal -->
+
+        <!-- Edit Custom Policy Modal -->
+        <div id="edit_custom_policy" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Custom Policy</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label>Policy Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" value="LOP">
+                            </div>
+                            <div class="form-group">
+                                <label>Days <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" value="4">
+                            </div>
+                            <div class="form-group leave-duallist">
+                                <label>Add employee</label>
+                                <div class="row">
+                                    <div class="col-lg-5 col-sm-5">
+                                        <select name="edit_customleave_from" id="edit_customleave_select"
+                                            class="form-control form-select" size="5" multiple="multiple">
+                                            <option value="1">Bernardo Galaviz </option>
+                                            <option value="2">Jeffrey Warden</option>
+                                            <option value="2">John Doe</option>
+                                            <option value="2">John Smith</option>
+                                            <option value="3">Mike Litorus</option>
+                                        </select>
+                                    </div>
+                                    <div class="multiselect-controls col-lg-2 col-sm-2 d-grid gap-2">
+                                        <button type="button" id="edit_customleave_select_rightAll"
+                                            class="btn w-100 btn-white"><i class="fa fa-forward"></i></button>
+                                        <button type="button" id="edit_customleave_select_rightSelected"
+                                            class="btn w-100 btn-white"><i class="fa fa-chevron-right"></i></button>
+                                        <button type="button" id="edit_customleave_select_leftSelected"
+                                            class="btn w-100 btn-white"><i class="fa fa-chevron-left"></i></button>
+                                        <button type="button" id="edit_customleave_select_leftAll"
+                                            class="btn w-100 btn-white"><i class="fa fa-backward"></i></button>
+                                    </div>
+                                    <div class="col-lg-5 col-sm-5">
+                                        <select name="customleave_to" id="edit_customleave_select_to"
+                                            class="form-control form-select" size="8" multiple="multiple"></select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="submit-section">
+                                <button class="btn btn-primary submit-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Edit Custom Policy Modal -->
+
+        <!-- Delete Custom Policy Modal -->
+        <div class="modal custom-modal fade" id="delete_custom_policy" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h3>Delete Custom Policy</h3>
+                            <p>Are you sure want to delete?</p>
+                        </div>
+                        <div class="modal-btn delete-action">
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="javascript:void(0);" class="btn btn-primary continue-btn">Delete</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="javascript:void(0);" data-bs-dismiss="modal"
+                                        class="btn btn-primary cancel-btn">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Delete Custom Policy Modal -->
+        <!-- /Page Content -->

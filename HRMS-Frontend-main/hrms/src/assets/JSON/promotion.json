@@ -1,0 +1,41 @@
+{
+    "data" : [
+        {
+          "id": 1,
+          "employee": "John Doe",
+          "department": "Web development",
+          "designation": "Web Design",
+          "promotionFrom": "Web developer",
+          "promotionTo": "Sr.Web developer",
+          "promotionDate": "28-09-2019"
+        },
+        {
+          "id": 2,
+          "employee": "John Doe",
+          "department": "Web development",
+          "designation": "Web Design",
+          "promotionFrom": "Web developer",
+          "promotionTo": "Sr.Web developer",
+          "promotionDate": "28-09-2019"
+        },
+        {
+          "id": 3,
+          "employee": "John Doe",
+          "department": "Web development",
+          "designation": "Web Design",
+          "promotionFrom": "Web developer",
+          "promotionTo": "Sr.Web developer",
+          "promotionDate": "28-09-2019"
+        },
+        {
+          "id": 4,
+          "employee": "John Doe",
+          "department": "Web development",
+          "designation": "Web design",
+          "promotionFrom": "Web developer",
+          "promotionTo": "Sr.Web developer",
+          "promotionDate": "28-09-2019"
+        }
+      ],
+      "totalData":4
+}

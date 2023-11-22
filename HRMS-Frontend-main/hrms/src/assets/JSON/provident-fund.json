@@ -1,0 +1,47 @@
+{
+    "data" : [
+        {
+          "employeeName": "Loren Mac",
+          "providentFundType": "Percentage of Basic Salary",
+          "employeeShare": "2%",
+          "organizationShare": "2%",
+          "id": 1
+        },
+        {
+          "employeeName": "John Doe",
+          "providentFundType": "Percentage of Basic Salary",
+          "employeeShare": "4%",
+          "organizationShare": "5%",
+          "id": 2
+        },
+        {
+          "employeeName": "Tarah Shropshire",
+          "providentFundType": "Percentage of Basic Salary",
+          "employeeShare": "9%",
+          "organizationShare": "5%",
+          "id": 3
+        },
+        {
+          "employeeName": "John Doe",
+          "providentFundType": "Percentage of Basic Salary",
+          "employeeShare": "9%",
+          "organizationShare": "2%",
+          "id": 4
+        },
+        {
+          "employeeName": "John michelin",
+          "providentFundType": "Percentage of Basic Salary",
+          "employeeShare": "4%",
+          "organizationShare": "2%",
+          "id": 5
+        },
+        {
+          "employeeName": "Kennedy michelin",
+          "providentFundType": "Percentage of Basic Salary",
+          "employeeShare": "2%",
+          "organizationShare": "2%",
+          "id": 6
+        }
+      ],
+      "totalData":6
+}
